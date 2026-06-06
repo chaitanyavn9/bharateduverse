@@ -93,10 +93,10 @@ Open [http://localhost:3000](http://localhost:3000)
 ## Revenue Model
 
 - ✅ **Free** for students and parents — always
-- 💼 **College Profiles** — enhanced listings (Phase 2)
-- 📊 **Analytics** — for colleges (Phase 3)
-- 🎯 **Lead Generation** — opt-in student leads for colleges (Phase 4)
-- 🚫 **Never** — paid rankings
+- 💼 **Quarterly Plan** — college listing with full profile, placement data, student enquiries
+- 📅 **Yearly Plan** — all quarterly features + analytics dashboard + priority placement + verified leads (~20% saving)
+- 🏫 **Enterprise / University** — multi-campus custom pricing
+- 🚫 **Never** — paid rankings. Every college in the same plan gets the same fair visibility.
 
 ---
 
