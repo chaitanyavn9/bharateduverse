@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Compass } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Discover", href: "/discover" },
@@ -27,22 +28,17 @@ export default function Navbar() {
       }}
     >
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 20px" }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 80 }}>
           {/* Logo */}
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-            <div
-              style={{
-                width: 36,
-                height: 36,
-                borderRadius: 8,
-                background: "linear-gradient(135deg, #FF8C00, #e07b00)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Compass size={20} color="white" />
-            </div>
+            <Image
+              src="/logo.png"
+              alt="BharatEduVerse"
+              width={72}
+              height={72}
+              style={{ borderRadius: 8, objectFit: "contain" }}
+              priority
+            />
             <div>
               <span style={{ fontFamily: "var(--font-poppins)", fontWeight: 700, fontSize: 18 }}>
                 <span style={{ color: "#FF8C00" }}>Bharat</span>

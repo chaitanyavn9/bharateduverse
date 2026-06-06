@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Compass, ArrowRight, Scale, Map, BookOpen,
   FlaskConical, Building2, ShieldCheck, Sprout,
@@ -59,6 +60,23 @@ export default function HomePage() {
         }}
       >
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          {/* Hero logo */}
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: 28 }}>
+            <Image
+              src="/logo.png"
+              alt="BharatEduVerse"
+              width={160}
+              height={160}
+              style={{
+                objectFit: "contain",
+                filter: "drop-shadow(0 8px 32px rgba(255,140,0,0.25))",
+                WebkitMaskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 80%)",
+                maskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 80%)",
+              }}
+              priority
+            />
+          </div>
+
           <div
             style={{
               display: "inline-flex",

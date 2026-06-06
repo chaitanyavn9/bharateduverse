@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Compass } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -15,9 +15,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-              <div style={{ width: 28, height: 28, borderRadius: 6, background: "linear-gradient(135deg, #FF8C00, #e07b00)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Compass size={16} color="white" />
-              </div>
+              <Image src="/logo.png" alt="BharatEduVerse" width={32} height={32} style={{ borderRadius: 6, objectFit: "contain" }} />
               <span style={{ fontFamily: "var(--font-poppins)", fontWeight: 700, fontSize: 16 }}>
                 <span style={{ color: "#FF8C00" }}>Bharat</span>
                 <span style={{ color: "#f1f5f9" }}>Edu</span>
