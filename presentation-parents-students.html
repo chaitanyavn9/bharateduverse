@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BharatEduVerse — For Students & Parents</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange: #FF8C00;
+      --green: #1E8E3E;
+      --blue: #0F52BA;
+      --bg: #0B1020;
+      --card: #111827;
+      --card2: #1a2235;
+      --border: #1e293b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+
+    .slide {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 40px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .slide-inner { max-width: 960px; width: 100%; }
+    .slide-num { position: absolute; top: 24px; right: 32px; font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: 1px; }
+
+    /* STORY SLIDES */
+    .story-slide { background: radial-gradient(ellipse at top left, rgba(255,140,0,0.06) 0%, transparent 50%), var(--bg); }
+    .story-emoji { font-size: 72px; margin-bottom: 24px; display: block; text-align: center; }
+    .story-text {
+      font-size: clamp(17px, 2.5vw, 22px);
+      line-height: 1.9;
+      color: var(--muted);
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .story-text strong { color: var(--text); }
+    .story-text .highlight-o { color: var(--orange); font-weight: 700; }
+    .story-text .highlight-g { color: var(--green); font-weight: 700; }
+
+    .story-heading {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    /* HERO */
+    #slide-1 { background: radial-gradient(ellipse at top, rgba(255,140,0,0.09) 0%, transparent 60%), radial-gradient(ellipse at bottom right, rgba(30,142,62,0.06) 0%, transparent 60%), var(--bg); text-align: center; }
+
+    .logo-hero { width: 130px; height: 130px; object-fit: contain; margin-bottom: 20px; filter: drop-shadow(0 8px 40px rgba(255,140,0,0.3)); -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 80%); mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 80%); }
+
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,140,0,0.1); border: 1px solid rgba(255,140,0,0.25); border-radius: 20px; padding: 6px 18px; font-size: 13px; color: var(--orange); font-weight: 600; margin-bottom: 20px; }
+
+    .hero-title { font-size: clamp(36px, 6vw, 68px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px; }
+
+    .o { color: var(--orange); }
+    .g { color: var(--green); }
+    .w { color: var(--text); }
+
+    .hero-sub { font-size: clamp(16px, 2.5vw, 20px); color: var(--muted); margin-bottom: 36px; line-height: 1.7; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+    .pill-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .pill { padding: 8px 20px; border-radius: 24px; font-size: 14px; font-weight: 600; border: 1px solid; }
+    .pill-o { background: rgba(255,140,0,0.12); color: var(--orange); border-color: rgba(255,140,0,0.3); }
+    .pill-g { background: rgba(30,142,62,0.12); color: var(--green); border-color: rgba(30,142,62,0.3); }
+    .pill-b { background: rgba(15,82,186,0.12); color: #4d8bff; border-color: rgba(15,82,186,0.3); }
+
+    /* CARDS */
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .card-grid { display: grid; gap: 16px; }
+    .card-grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card-grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+    /* DIVIDER */
+    .divider { width: 60px; height: 4px; background: linear-gradient(90deg, var(--orange), var(--green)); border-radius: 2px; margin: 16px 0 32px; }
+    .divider-center { margin: 16px auto 32px; }
+
+    /* SECTION LABEL */
+    .label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+
+    /* QUOTE BOX */
+    .quote-box {
+      border-left: 4px solid var(--orange);
+      padding: 16px 24px;
+      background: rgba(255,140,0,0.04);
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+      font-size: clamp(16px, 2vw, 20px);
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* FARMER VISUAL */
+    .farmer-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 24px 0; justify-content: center; }
+    .farmer-chip {
+      width: 60px;
+      height: 80px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 24px;
+      font-weight: 700;
+      font-size: 13px;
+      border: 2px solid;
+    }
+    .farmer-struggle { background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.3); color: #ef4444; }
+    .farmer-smart { background: rgba(30,142,62,0.12); border-color: rgba(30,142,62,0.3); color: var(--green); }
+
+    /* PATH VISUAL */
+    .path-row { display: flex; align-items: center; gap: 0; flex-wrap: wrap; justify-content: center; margin: 28px 0; }
+    .path-box { text-align: center; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; min-width: 90px; }
+    .path-box-active { background: rgba(255,140,0,0.1); border-color: rgba(255,140,0,0.4); }
+    .path-label { font-size: 12px; font-weight: 600; }
+    .path-arrow { color: var(--muted); font-size: 18px; padding: 0 4px; }
+
+    /* BENEFIT CARDS */
+    .benefit { display: flex; gap: 16px; align-items: flex-start; padding: 20px; }
+    .benefit-icon { font-size: 32px; flex-shrink: 0; }
+    .benefit-title { font-weight: 700; font-size: 16px; margin-bottom: 6px; color: var(--text); }
+    .benefit-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* FREE SECTION */
+    .free-box {
+      background: linear-gradient(135deg, rgba(30,142,62,0.08), rgba(30,142,62,0.03));
+      border: 2px solid rgba(30,142,62,0.3);
+      border-radius: 16px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    /* DONATION */
+    .donation-box {
+      background: linear-gradient(135deg, rgba(255,140,0,0.07), rgba(15,82,186,0.05));
+      border: 1px solid rgba(255,140,0,0.2);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .donate-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 36px;
+      background: linear-gradient(135deg, var(--orange), #e07b00);
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(255,140,0,0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    /* NAV DOTS */
+    #nav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 999; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.2s; border: none; }
+    .dot.active { background: var(--orange); transform: scale(1.4); }
+
+    @media (max-width: 600px) {
+      .slide { padding: 48px 20px; }
+      #nav-dots { display: none; }
+      .path-row { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-dots">
+  <button class="dot active" onclick="goTo(0)"></button>
+  <button class="dot" onclick="goTo(1)"></button>
+  <button class="dot" onclick="goTo(2)"></button>
+  <button class="dot" onclick="goTo(3)"></button>
+  <button class="dot" onclick="goTo(4)"></button>
+  <button class="dot" onclick="goTo(5)"></button>
+  <button class="dot" onclick="goTo(6)"></button>
+  <button class="dot" onclick="goTo(7)"></button>
+  <button class="dot" onclick="goTo(8)"></button>
+  <button class="dot" onclick="goTo(9)"></button>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 1 — COVER
+══════════════════════════════════════════════════ -->
+<div class="slide" id="slide-1">
+  <span class="slide-num">01 / 10</span>
+  <div class="slide-inner" style="text-align:center;">
+    <img src="public/logo.png" alt="BharatEduVerse" class="logo-hero" />
+    <div class="badge">🎓 &nbsp; For Students & Parents</div>
+    <h1 class="hero-title"><span class="o">Bharat</span><span class="w">Edu</span><span class="g">Verse</span></h1>
+    <p class="hero-sub">
+      A free guide for every Indian student and parent —<br/>
+      to choose the <strong style="color:var(--orange)">right path</strong> at the right time, for the right future.
+    </p>
+    <div class="pill-row">
+      <span class="pill pill-o">100% Free</span>
+      <span class="pill pill-g">No Ads</span>
+      <span class="pill pill-b">No Bias</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 2 — THE FARMER STORY
+══════════════════════════════════════════════════ -->
+<div class="slide story-slide" id="slide-2">
+  <span class="slide-num">02 / 10</span>
+  <div class="slide-inner" style="text-align:center;">
+    <span class="story-emoji">🌾</span>
+    <h2 class="story-heading">A Story From the Fields</h2>
+    <div class="divider divider-center"></div>
+
+    <p class="story-text" style="margin-bottom: 32px;">
+      Imagine a village. Ten farmers. All of them growing <strong>tomatoes</strong>.
+    </p>
+
+    <div class="farmer-row">
+      <div class="farmer-chip farmer-struggle"><span>👨‍🌾</span><span>Low</span></div>
+      <div class="farmer-chip farmer-struggle"><span>👨‍🌾</span><span>Low</span></div>
+      <div class="farmer-chip farmer-struggle"><span>👨‍🌾</span><span>Low</span></div>
+      <div class="farmer-chip farmer-struggle"><span>👨‍🌾</span><span>Low</span></div>
+      <div class="farmer-chip farmer-struggle"><span>👨‍🌾</span><span>Low</span></div>
+      <div class="farmer-chip farmer-struggle"><span>👨‍🌾</span><span>Low</span></div>
+      <div class="farmer-chip farmer-struggle"><span>👨‍🌾</span><span>Low</span></div>
+      <div class="farmer-chip farmer-struggle"><span>👨‍🌾</span><span>Low</span></div>
+      <div class="farmer-chip farmer-smart"><span>👨‍🌾</span><span>High</span></div>
+      <div class="farmer-chip farmer-smart"><span>👨‍🌾</span><span>High</span></div>
+    </div>
+
+    <p class="story-text" style="margin-top: 28px;">
+      Eight of them grow tomatoes in <strong>winter</strong> — the same season everyone else does.
+      The market floods. Prices crash. They all work hard and still barely make ends meet.
+      <br/><br/>
+      But the other two? They grow tomatoes in <strong>summer</strong>.
+      Less supply. More demand. <span class="highlight-g">Same crop, double the profit.</span>
+      <br/><br/>
+      The eight farmers weren't lazy. They weren't less skilled.
+      <strong>They just didn't know what the market needed.</strong>
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 3 — THE EDUCATION CONNECTION
+══════════════════════════════════════════════════ -->
+<div class="slide story-slide" id="slide-3">
+  <span class="slide-num">03 / 10</span>
+  <div class="slide-inner" style="text-align:center;">
+    <span class="story-emoji">🎓</span>
+    <h2 class="story-heading">Our Children Are Those <span class="o">Eight Farmers</span></h2>
+    <div class="divider divider-center"></div>
+
+    <p class="story-text" style="margin-bottom: 28px;">
+      Every year in India, millions of students finish their 10th or 12th.
+      And almost all of them look left and right — and do <strong>what everyone else is doing.</strong>
+      Computer Science. Engineering. Medical. MBA.
+    </p>
+
+    <div class="quote-box">
+      "Not because they love it. Not because there's a job waiting. But because their neighbour's son did it. Because the coaching centre near their house teaches it."
+    </div>
+
+    <p class="story-text">
+      The market gets flooded. <span class="highlight-o">Lakhs of engineers graduate every year</span> and struggle to find jobs in their field.
+      Meanwhile, there are <strong>hundreds of other paths</strong> — oceanographers, quantum researchers, food technologists, sustainability experts, aerospace engineers —
+      where <span class="highlight-g">demand is high and supply is almost zero.</span>
+      <br/><br/>
+      Nobody told them those paths existed.
+      Nobody showed them where the opportunities actually are.
+      <strong>That's the problem we're solving.</strong>
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 4 — ONE LIFE, ONE CHANCE
+══════════════════════════════════════════════════ -->
+<div class="slide" id="slide-4">
+  <span class="slide-num">04 / 10</span>
+  <div class="slide-inner" style="text-align:center;">
+    <span class="story-emoji">⏳</span>
+    <h2 class="story-heading">One Life. One Chance. <span class="o">Make It Count.</span></h2>
+    <div class="divider divider-center"></div>
+
+    <p class="story-text" style="margin-bottom: 32px;">
+      A farmer who grows the wrong crop this season? He can try again next season.
+      <br/><br/>
+      But a student who spends <strong>4 years and ₹10 lakhs</strong> on the wrong degree?
+      That's 4 years of life. That's a family's savings. That's a dream built on a foundation that nobody checked.
+    </p>
+
+    <div class="card-grid card-grid-3" style="text-align:left; margin: 0 auto;">
+      <div class="card" style="text-align:center; padding:28px 20px;">
+        <div style="font-size:36px; margin-bottom:10px;">💸</div>
+        <div style="font-size:28px; font-weight:800; color:var(--orange); font-family:'Poppins',sans-serif;">₹5–20L</div>
+        <div style="font-size:13px; color:var(--muted); margin-top:6px;">Average cost of a 4-year degree in India</div>
+      </div>
+      <div class="card" style="text-align:center; padding:28px 20px;">
+        <div style="font-size:36px; margin-bottom:10px;">📅</div>
+        <div style="font-size:28px; font-weight:800; color:var(--orange); font-family:'Poppins',sans-serif;">4 Years</div>
+        <div style="font-size:13px; color:var(--muted); margin-top:6px;">Of your child's youth. Non-refundable.</div>
+      </div>
+      <div class="card" style="text-align:center; padding:28px 20px;">
+        <div style="font-size:36px; margin-bottom:10px;">😟</div>
+        <div style="font-size:28px; font-weight:800; color:#ef4444; font-family:'Poppins',sans-serif;">47%</div>
+        <div style="font-size:13px; color:var(--muted); margin-top:6px;">Of graduates work in fields unrelated to their degree</div>
+      </div>
+    </div>
+
+    <p class="story-text" style="margin-top:32px;">
+      This isn't about blaming anyone. Parents want the best. Students try their hardest.
+      <strong>The problem is — nobody had a map.</strong>
+      <br/><br/>
+      Until now.
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 5 — WHAT BHARATEDUVERSE DOES
+══════════════════════════════════════════════════ -->
+<div class="slide story-slide" id="slide-5">
+  <span class="slide-num">05 / 10</span>
+  <div class="slide-inner">
+    <div class="label">Introducing</div>
+    <h2 style="font-size:clamp(28px,4vw,48px); font-weight:800; margin-bottom:12px;">
+      Your Child's <span class="o">Personal Career Compass</span>
+    </h2>
+    <div class="divider"></div>
+
+    <p class="story-text" style="margin-bottom:32px;">
+      Think of BharatEduVerse as that <strong>wise uncle in every family</strong> — the one who has seen the world,
+      knows which fields are growing, which ones are shrinking, and sits down with you
+      over a cup of tea to say: <em>"Beta, let me show you what's really out there."</em>
+      <br/><br/>
+      Except this uncle knows every career in India. Every exam. Every college. Every company.
+      Every upcoming opportunity in your own state.
+      And he's available 24/7, completely free.
+    </p>
+
+    <div class="card-grid card-grid-2">
+      <div class="card benefit">
+        <div class="benefit-icon">🧭</div>
+        <div>
+          <div class="benefit-title">Answer 9 simple questions</div>
+          <div class="benefit-desc">What interests you? What's your budget? Do you want stability or adventure? Do you want to work for someone or build something? That's all we ask.</div>
+        </div>
+      </div>
+      <div class="card benefit">
+        <div class="benefit-icon">🗺️</div>
+        <div>
+          <div class="benefit-title">See your full career map</div>
+          <div class="benefit-desc">After 10th → 12th group → which college → which exams → which companies are hiring → what you'll earn → what the future looks like. All in one place.</div>
+        </div>
+      </div>
+      <div class="card benefit">
+        <div class="benefit-icon">⚖️</div>
+        <div>
+          <div class="benefit-title">Compare paths side by side</div>
+          <div class="benefit-desc">Confused between CSE and Aerospace? CA vs banking? See them side by side — income, job security, work-life balance, AI resistance, future scope. No guesswork.</div>
+        </div>
+      </div>
+      <div class="card benefit">
+        <div class="benefit-icon">📍</div>
+        <div>
+          <div class="benefit-title">Opportunities in your own state</div>
+          <div class="benefit-desc">Not just what's available now — what's coming. Google AI Data Center in AP. Aerospace City. Quantum Valley. Drone City. We show you what's being built near you.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 6 — THE REAL STORIES
+══════════════════════════════════════════════════ -->
+<div class="slide story-slide" id="slide-6">
+  <span class="slide-num">06 / 10</span>
+  <div class="slide-inner">
+    <div class="label">Real Situations, Real Decisions</div>
+    <h2 style="font-size:clamp(26px,4vw,44px); font-weight:800; margin-bottom:12px;">
+      Stories That Could Be <span class="g">Your Story</span>
+    </h2>
+    <div class="divider"></div>
+
+    <div style="display:flex; flex-direction:column; gap:20px; margin-top:8px;">
+
+      <div class="card" style="border-left: 4px solid var(--orange); padding:24px 28px;">
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <div style="font-size:36px; flex-shrink:0;">👧</div>
+          <div>
+            <div style="font-weight:700; font-size:16px; margin-bottom:8px; color:var(--orange)">Priya from Guntur — after 10th</div>
+            <p style="font-size:14px; color:var(--muted); line-height:1.8;">
+              Priya loves biology and the ocean. Everyone told her — take BiPC, become a doctor. But NEET is brutal, seats are few, fees are high.
+              Nobody told her about <strong style="color:var(--text)">Oceanography at Andhra University Vizag</strong>, or that
+              <strong style="color:var(--text)">INCOIS — India's ocean science HQ — is right there in Hyderabad</strong>, or that India's deep sea mission
+              Samudrayaan just got ₹4,000 Cr in funding. She could have built a career no one in her village has ever imagined.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--green); padding:24px 28px;">
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <div style="font-size:36px; flex-shrink:0;">👦</div>
+          <div>
+            <div style="font-weight:700; font-size:16px; margin-bottom:8px; color:var(--green)">Ravi's father from Kurnool — confused parent</div>
+            <p style="font-size:14px; color:var(--muted); line-height:1.8;">
+              Ravi scored 92% in 10th. His father wants him to do engineering. Ravi loves numbers and wants to start something of his own.
+              Nobody told Ravi's father that <strong style="color:var(--text)">Actuarial Science</strong> — which Ravi would love —
+              has a starting salary of ₹6-12L, is one of the hardest professions globally, and the whole of India has barely
+              a few hundred qualified actuaries. <strong style="color:var(--text)">Low supply. Very high demand.</strong> That's the farmer who grows in summer.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--blue); padding:24px 28px;">
+        <div style="display:flex; gap:14px; align-items:flex-start;">
+          <div style="font-size:36px; flex-shrink:0;">👨‍👩‍👧</div>
+          <div>
+            <div style="font-weight:700; font-size:16px; margin-bottom:8px; color:#4d8bff">A family from Vizag — investing their savings</div>
+            <p style="font-size:14px; color:var(--muted); line-height:1.8;">
+              They sold land to pay for their daughter's private engineering seat. Four years later she graduated — like 15 lakh others that year.
+              If someone had shown them the <strong style="color:var(--text)">government college route through EAMCET</strong>,
+              the <strong style="color:var(--text)">scholarship options</strong>, or the <strong style="color:var(--text)">Polytechnic → LEET → BTech path</strong>
+              that costs a fraction — they'd still have that land, and their daughter would have the same degree.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 7 — HOW WE HELP
+══════════════════════════════════════════════════ -->
+<div class="slide" id="slide-7">
+  <span class="slide-num">07 / 10</span>
+  <div class="slide-inner" style="text-align:center;">
+    <span class="story-emoji">🛤️</span>
+    <h2 class="story-heading">We Show You the <span class="o">Full Road</span> — Not Just the First Step</h2>
+    <div class="divider divider-center"></div>
+
+    <p class="story-text" style="margin-bottom:32px;">
+      Most guidance stops at "take science group" or "do engineering."
+      We show you <strong>everything</strong> — from the day after 10th results, all the way to your first salary and beyond.
+    </p>
+
+    <div class="path-row">
+      <div class="path-box"><div style="font-size:18px;">📋</div><div class="path-label">After 10th</div></div>
+      <div class="path-arrow">→</div>
+      <div class="path-box path-box-active"><div style="font-size:18px;">📚</div><div class="path-label">Right Group</div></div>
+      <div class="path-arrow">→</div>
+      <div class="path-box"><div style="font-size:18px;">🎓</div><div class="path-label">Right College</div></div>
+      <div class="path-arrow">→</div>
+      <div class="path-box"><div style="font-size:18px;">✍️</div><div class="path-label">Right Exams</div></div>
+      <div class="path-arrow">→</div>
+      <div class="path-box path-box-active"><div style="font-size:18px;">💼</div><div class="path-label">Right Job</div></div>
+      <div class="path-arrow">→</div>
+      <div class="path-box"><div style="font-size:18px;">🚀</div><div class="path-label">Your Future</div></div>
+    </div>
+
+    <div class="card-grid card-grid-3" style="margin-top:32px; text-align:left;">
+      <div class="card">
+        <div style="font-weight:700; color:var(--orange); margin-bottom:8px; font-size:15px;">📊 Income Reality</div>
+        <div style="font-size:13px; color:var(--muted); line-height:1.7;">We show you exact income ranges — entry level, mid career, senior level — for every path. No vague promises.</div>
+      </div>
+      <div class="card">
+        <div style="font-weight:700; color:var(--green); margin-bottom:8px; font-size:15px;">🔮 Future Scope</div>
+        <div style="font-size:13px; color:var(--muted); line-height:1.7;">Which careers will AI replace? Which will grow? Which are government priorities? We score all of it honestly.</div>
+      </div>
+      <div class="card">
+        <div style="font-weight:700; color:var(--blue); margin-bottom:8px; font-size:15px;">💰 Budget Match</div>
+        <div style="font-size:13px; color:var(--muted); line-height:1.7;">We show paths that fit your actual budget — from ₹10,000/year govt colleges to premium private options. All covered.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 8 — COMPLETELY FREE
+══════════════════════════════════════════════════ -->
+<div class="slide" id="slide-8">
+  <span class="slide-num">08 / 10</span>
+  <div class="slide-inner" style="text-align:center;">
+    <span class="story-emoji">💚</span>
+    <h2 class="story-heading">Free. Forever. <span class="g">No Strings.</span></h2>
+    <div class="divider divider-center"></div>
+
+    <p class="story-text" style="margin-bottom:36px;">
+      We know most Indian families work incredibly hard for every rupee.
+      A student's future shouldn't depend on whether their parents can afford a career counsellor.
+      So we made a simple decision early on — <strong>this will always be free for students and parents.</strong>
+      Every feature. Every roadmap. Every comparison. No subscription. No paywall. No trial period.
+    </p>
+
+    <div class="free-box">
+      <div style="font-size:48px; margin-bottom:16px;">🎁</div>
+      <h3 style="font-size:clamp(22px,3.5vw,34px); font-weight:800; color:var(--green); margin-bottom:16px;">What You Get — 100% Free</h3>
+      <div class="card-grid card-grid-3" style="text-align:left; margin-top:20px;">
+        <div style="padding:10px 0;">
+          <div style="color:var(--green); font-weight:700; font-size:14px; margin-bottom:4px;">✅ Career Discovery</div>
+          <div style="font-size:13px; color:var(--muted);">Full questionnaire and personalised path matching</div>
+        </div>
+        <div style="padding:10px 0;">
+          <div style="color:var(--green); font-weight:700; font-size:14px; margin-bottom:4px;">✅ Compare Engine</div>
+          <div style="font-size:13px; color:var(--muted);">Side-by-side comparison of any career paths</div>
+        </div>
+        <div style="padding:10px 0;">
+          <div style="color:var(--green); font-weight:700; font-size:14px; margin-bottom:4px;">✅ Full Roadmaps</div>
+          <div style="font-size:13px; color:var(--muted);">Studies → Exams → Jobs → Income for every path</div>
+        </div>
+        <div style="padding:10px 0;">
+          <div style="color:var(--green); font-weight:700; font-size:14px; margin-bottom:4px;">✅ Exam Guide</div>
+          <div style="font-size:13px; color:var(--muted);">JEE, NEET, UPSC, GATE, SSC and more — all explained</div>
+        </div>
+        <div style="padding:10px 0;">
+          <div style="color:var(--green); font-weight:700; font-size:14px; margin-bottom:4px;">✅ State Opportunities</div>
+          <div style="font-size:13px; color:var(--muted);">Upcoming industries and jobs in your own state</div>
+        </div>
+        <div style="padding:10px 0;">
+          <div style="color:var(--green); font-weight:700; font-size:14px; margin-bottom:4px;">✅ Research Guide</div>
+          <div style="font-size:13px; color:var(--muted);">Fellowships, incubators, national missions — all free</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 9 — DONATION
+══════════════════════════════════════════════════ -->
+<div class="slide story-slide" id="slide-9">
+  <span class="slide-num">09 / 10</span>
+  <div class="slide-inner" style="text-align:center;">
+    <span class="story-emoji">🤝</span>
+    <h2 class="story-heading">If We Helped You — <span class="o">Help the Next Family</span></h2>
+    <div class="divider divider-center"></div>
+
+    <p class="story-text" style="margin-bottom:36px;">
+      BharatEduVerse is built by people who believe every child in India deserves the same quality of
+      career guidance — whether they're from a city or a village, a rich family or a struggling one.
+      <br/><br/>
+      We don't charge students. We never will.
+      But running this platform — the servers, the data, the team that updates it — <strong>costs money.</strong>
+      <br/><br/>
+      If this platform helped your child find clarity,
+      if it saved you from a wrong decision, if it opened a door you didn't know existed —
+      <strong>consider paying it forward.</strong>
+      Your contribution keeps this free for the next family in a village somewhere who can't afford a career counsellor.
+    </p>
+
+    <div class="donation-box">
+      <div style="font-size:36px; margin-bottom:16px;">🙏</div>
+      <h3 style="font-size:clamp(20px,3vw,30px); font-weight:800; margin-bottom:12px;">Support BharatEduVerse</h3>
+      <p style="font-size:15px; color:var(--muted); line-height:1.7; max-width:500px; margin:0 auto 8px;">
+        Even ₹100 from one family keeps this platform free for ten more.
+        No amount is too small. Every rupee goes towards keeping this platform alive, updated, and free.
+      </p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:24px;">
+        <button onclick="alert('Payment gateway coming soon! Thank you for your support 🙏')" class="donate-btn">❤️ &nbsp; Donate ₹100</button>
+        <button onclick="alert('Payment gateway coming soon! Thank you for your support 🙏')" class="donate-btn" style="background:linear-gradient(135deg,#1E8E3E,#167a34);">🌱 &nbsp; Donate ₹500</button>
+        <button onclick="alert('Payment gateway coming soon! Thank you for your support 🙏')" class="donate-btn" style="background:linear-gradient(135deg,#0F52BA,#0a3d8f);">⭐ &nbsp; Donate ₹1000</button>
+      </div>
+      <p style="font-size:12px; color:var(--muted); margin-top:16px;">All donations are voluntary. You can use every feature without donating — always.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 10 — CLOSING
+══════════════════════════════════════════════════ -->
+<div class="slide" id="slide-10" style="background: radial-gradient(ellipse at center, rgba(255,140,0,0.08) 0%, transparent 60%), var(--bg); text-align:center;">
+  <span class="slide-num">10 / 10</span>
+  <div class="slide-inner">
+    <img src="public/logo.png" alt="BharatEduVerse" class="logo-hero" style="width:120px;height:120px;" />
+    <h2 style="font-size:clamp(30px,5vw,56px); font-weight:800; line-height:1.15; margin-bottom:20px;">
+      The Two Farmers Who <span class="g">Chose Wisely</span><br/>— That Can Be <span class="o">Your Child.</span>
+    </h2>
+    <p style="font-size:clamp(15px,2vw,18px); color:var(--muted); line-height:1.8; max-width:600px; margin:0 auto 40px;">
+      You don't need to know everything. You just need the right map.
+      We built that map — and we're giving it to every Indian student and parent, completely free.
+      <br/><br/>
+      <strong style="color:var(--text);">One decision. One direction. One life.</strong><br/>
+      Let's make it count.
+    </p>
+    <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:28px; max-width:460px; margin:0 auto;">
+      <div style="font-size:24px; font-weight:800; font-family:'Poppins',sans-serif; margin-bottom:8px;">
+        <span style="color:var(--orange)">Bharat</span><span style="color:var(--text)">Edu</span><span style="color:var(--green)">Verse</span>
+      </div>
+      <div style="font-size:14px; color:var(--muted);">Free for Students & Parents — Forever.</div>
+      <div style="margin-top:16px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
+        <span class="pill pill-o" style="font-size:12px;">100% Free</span>
+        <span class="pill pill-g" style="font-size:12px;">No Paid Rankings</span>
+        <span class="pill pill-b" style="font-size:12px;">Built for India</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  function goTo(i) { slides[i].scrollIntoView({ behavior: 'smooth' }); }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const i = Array.from(slides).indexOf(e.target);
+        dots.forEach(d => d.classList.remove('active'));
+        if (dots[i]) dots[i].classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 });
+  slides.forEach(s => obs.observe(s));
+</script>
+
+</body>
+</html>

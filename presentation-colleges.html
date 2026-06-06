@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BharatEduVerse — For Colleges & Institutions</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange: #FF8C00;
+      --green: #1E8E3E;
+      --blue: #0F52BA;
+      --bg: #0B1020;
+      --card: #111827;
+      --card2: #1a2235;
+      --border: #1e293b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+
+    .slide {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 40px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .slide-inner { max-width: 960px; width: 100%; }
+    .slide-num { position: absolute; top: 24px; right: 32px; font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: 1px; }
+
+    .story-slide { background: radial-gradient(ellipse at top right, rgba(15,82,186,0.06) 0%, transparent 50%), var(--bg); }
+
+    /* HERO */
+    #slide-1 { background: radial-gradient(ellipse at top, rgba(15,82,186,0.1) 0%, transparent 60%), radial-gradient(ellipse at bottom left, rgba(255,140,0,0.06) 0%, transparent 60%), var(--bg); text-align: center; }
+
+    .logo-hero { width: 120px; height: 120px; object-fit: contain; margin-bottom: 20px; filter: drop-shadow(0 8px 40px rgba(15,82,186,0.4)); -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 80%); mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 80%); }
+
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(15,82,186,0.12); border: 1px solid rgba(15,82,186,0.3); border-radius: 20px; padding: 6px 18px; font-size: 13px; color: #4d8bff; font-weight: 600; margin-bottom: 20px; }
+
+    .hero-title { font-size: clamp(36px, 6vw, 66px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .hero-sub { font-size: clamp(16px, 2.5vw, 20px); color: var(--muted); margin-bottom: 36px; line-height: 1.7; max-width: 600px; margin-left:auto; margin-right:auto; }
+
+    .o { color: var(--orange); }
+    .g { color: var(--green); }
+    .b { color: #4d8bff; }
+    .w { color: var(--text); }
+
+    .pill-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .pill { padding: 8px 20px; border-radius: 24px; font-size: 14px; font-weight: 600; border: 1px solid; }
+    .pill-o { background: rgba(255,140,0,0.12); color: var(--orange); border-color: rgba(255,140,0,0.3); }
+    .pill-g { background: rgba(30,142,62,0.12); color: var(--green); border-color: rgba(30,142,62,0.3); }
+    .pill-b { background: rgba(15,82,186,0.12); color: #4d8bff; border-color: rgba(15,82,186,0.3); }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .card-grid { display: grid; gap: 16px; }
+    .card-grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card-grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+    .divider { width: 60px; height: 4px; background: linear-gradient(90deg, #0F52BA, var(--orange)); border-radius: 2px; margin: 16px 0 32px; }
+    .divider-center { margin: 16px auto 32px; }
+
+    .label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #4d8bff; margin-bottom: 10px; }
+
+    .story-text { font-size: clamp(16px, 2.2vw, 20px); line-height: 1.9; color: var(--muted); max-width: 800px; margin: 0 auto; }
+    .story-text strong { color: var(--text); }
+    .story-heading { font-size: clamp(26px, 4vw, 44px); font-weight: 800; line-height: 1.2; margin-bottom: 24px; text-align: center; }
+    .story-emoji { font-size: 72px; margin-bottom: 24px; display: block; text-align: center; }
+
+    .quote-box {
+      border-left: 4px solid #4d8bff;
+      padding: 16px 24px;
+      background: rgba(15,82,186,0.05);
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+      font-size: clamp(16px, 2vw, 20px);
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* STAT BOX */
+    .stat-box { text-align: center; padding: 28px 20px; }
+    .stat-num { font-size: 44px; font-weight: 800; font-family: 'Poppins', sans-serif; line-height: 1; margin-bottom: 8px; }
+
+    /* COMPARISON TABLE */
+    .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .vs-col { padding: 24px; border-radius: 12px; }
+    .vs-old { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.2); }
+    .vs-new { background: rgba(30,142,62,0.06); border: 1px solid rgba(30,142,62,0.25); }
+    .vs-title { font-weight: 700; font-size: 15px; margin-bottom: 16px; }
+    .vs-item { font-size: 13px; color: var(--muted); padding: 8px 0; border-bottom: 1px solid var(--border); line-height: 1.5; }
+    .vs-item:last-child { border-bottom: none; }
+
+    /* PHASE CARD */
+    .phase { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+    .phase:last-child { border-bottom: none; }
+    .phase-badge { font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 12px; white-space: nowrap; flex-shrink: 0; margin-top: 3px; }
+
+    /* BENEFIT FEATURE */
+    .feature { display: flex; gap: 16px; align-items: flex-start; padding: 20px; }
+    .feature-icon { font-size: 30px; flex-shrink: 0; }
+    .feature-title { font-weight: 700; font-size: 15px; margin-bottom: 5px; }
+    .feature-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+    /* CTA */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .cta-primary { background: linear-gradient(135deg, #0F52BA, #0a3d8f); color: white; box-shadow: 0 4px 24px rgba(15,82,186,0.35); }
+    .cta-secondary { background: linear-gradient(135deg, var(--orange), #e07b00); color: white; box-shadow: 0 4px 24px rgba(255,140,0,0.3); }
+
+    /* TRUST BOX */
+    .trust-box {
+      background: rgba(255,140,0,0.05);
+      border: 1px solid rgba(255,140,0,0.2);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    /* NAV DOTS */
+    #nav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 999; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.2s; border: none; }
+    .dot.active { background: #4d8bff; transform: scale(1.4); }
+
+    @media (max-width: 600px) {
+      .slide { padding: 48px 20px; }
+      #nav-dots { display: none; }
+      .vs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-dots">
+  <button class="dot active" onclick="goTo(0)"></button>
+  <button class="dot" onclick="goTo(1)"></button>
+  <button class="dot" onclick="goTo(2)"></button>
+  <button class="dot" onclick="goTo(3)"></button>
+  <button class="dot" onclick="goTo(4)"></button>
+  <button class="dot" onclick="goTo(5)"></button>
+  <button class="dot" onclick="goTo(6)"></button>
+  <button class="dot" onclick="goTo(7)"></button>
+  <button class="dot" onclick="goTo(8)"></button>
+  <button class="dot" onclick="goTo(9)"></button>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 1 — COVER
+══════════════════════════════════════════════════ -->
+<div class="slide" id="slide-1">
+  <span class="slide-num">01 / 10</span>
+  <div class="slide-inner" style="text-align:center;">
+    <img src="public/logo.png" alt="BharatEduVerse" class="logo-hero" />
+    <div class="badge">🏛️ &nbsp; For Colleges & Institutions</div>
+    <h1 class="hero-title"><span class="o">Bharat</span><span class="w">Edu</span><span class="g">Verse</span></h1>
+    <p class="hero-sub">
+      India's career discovery platform — connecting <strong style="color:var(--text)">the right students</strong>
+      to the <strong style="color:var(--text)">right institutions</strong>, at <strong style="color:var(--text)">the right moment.</strong>
+    </p>
+    <div class="pill-row">
+      <span class="pill pill-b">Reach More Students</span>
+      <span class="pill pill-o">Zero Paid Rankings</span>
+      <span class="pill pill-g">Pure Merit Listing</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 2 — THE EMPTY CLASSROOM STORY
+══════════════════════════════════════════════════ -->
+<div class="slide story-slide" id="slide-2">
+  <span class="slide-num">02 / 10</span>
+  <div class="slide-inner" style="text-align:center;">
+    <span class="story-emoji">🏫</span>
+    <h2 class="story-heading">The Best Shop in the Market<br/>That Nobody Knows About</h2>
+    <div class="divider divider-center"></div>
+
+    <p class="story-text">
+      Imagine a market with a hundred shops. At the entrance, three or four big shops with bright hoardings
+      grab everyone's attention. <strong>Customers walk straight to them</strong> — not because they're the best,
+      but because they're the most visible.
+      <br/><br/>
+      Meanwhile, <strong>deep inside the market, there's a shop with better quality, better prices, better service.</strong>
+      The owner knows his product is good. His old customers love him. But the new customer — the one who just
+      walked into the market for the first time — has no idea he exists.
+      <br/><br/>
+      <strong>That shop is your college.</strong>
+      <br/><br/>
+      Your placement records are good. Your faculty is experienced. Your fees are fair. You've been serving students
+      for decades. But every year, thousands of students who would have been perfect for your courses
+      <span style="color:var(--orange); font-weight:700;">never find their way to your door.</span>
+      They go where the hoarding is brightest. They follow the crowd.
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 3 — THE REAL PROBLEM
+══════════════════════════════════════════════════ -->
+<div class="slide" id="slide-3">
+  <span class="slide-num">03 / 10</span>
+  <div class="slide-inner">
+    <div class="label">The Problem</div>
+    <h2 style="font-size:clamp(26px,4vw,44px); font-weight:800; margin-bottom:12px;">
+      Students Don't Find You. <span class="b">You Have to Find Them.</span>
+    </h2>
+    <div class="divider"></div>
+
+    <p class="story-text" style="margin-bottom:32px; text-align:left;">
+      Every year, millions of students in India are desperately searching for the right college.
+      But here's the truth — <strong>the discovery process in India is broken.</strong>
+    </p>
+
+    <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom:28px;">
+      <div class="card stat-box">
+        <div class="stat-num" style="color:#ef4444;">₹50Cr+</div>
+        <div style="font-size:13px; color:var(--muted);">Spent annually by colleges on ads that reach the wrong audience</div>
+      </div>
+      <div class="card stat-box">
+        <div class="stat-num" style="color:var(--orange);">73%</div>
+        <div style="font-size:13px; color:var(--muted);">Of students say they had no proper guidance when choosing a college</div>
+      </div>
+      <div class="card stat-box">
+        <div class="stat-num" style="color:var(--green);">1 in 3</div>
+        <div style="font-size:13px; color:var(--muted);">Students regret their college choice within the first year</div>
+      </div>
+      <div class="card stat-box">
+        <div class="stat-num" style="color:#4d8bff;">0</div>
+        <div style="font-size:13px; color:var(--muted);">Platforms that match students to colleges based on career goals — until now</div>
+      </div>
+    </div>
+
+    <div class="quote-box">
+      "A student who chose Engineering because his friend did — and ended up at your college — is not your best student. A student who chose Engineering because it fits his goals, his interests, and his future plans — that student stays, performs, and becomes your alumni success story."
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 4 — HOW BHARATEDUVERSE WORKS FOR STUDENTS
+══════════════════════════════════════════════════ -->
+<div class="slide story-slide" id="slide-4">
+  <span class="slide-num">04 / 10</span>
+  <div class="slide-inner">
+    <div class="label">How It Works</div>
+    <h2 style="font-size:clamp(26px,4vw,44px); font-weight:800; margin-bottom:12px;">
+      We Build the <span class="o">Bridge</span> Between Students and Your College
+    </h2>
+    <div class="divider"></div>
+
+    <p class="story-text" style="margin-bottom:32px; text-align:left;">
+      BharatEduVerse is where Indian students and parents come to <strong>discover career paths</strong>.
+      They answer questions about their interests, goals, and budget. Our platform then shows them the careers that fit —
+      and the <strong>colleges that offer those programs.</strong> Your college appears at exactly the moment a student is deciding their future.
+    </p>
+
+    <div style="display:flex; flex-direction:column; gap:0; margin-top:8px;">
+      <div style="display:flex; gap:20px; padding-bottom:28px;">
+        <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
+          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#0F52BA,#0a3d8f); display:flex; align-items:center; justify-content:center; font-weight:800; color:white; font-size:14px; flex-shrink:0;">1</div>
+          <div style="width:2px; flex:1; min-height:24px; background:var(--border); margin:4px 0;"></div>
+        </div>
+        <div style="padding-top:6px;">
+          <div style="font-weight:700; font-size:16px; margin-bottom:6px;">Student discovers their ideal career path</div>
+          <div style="font-size:14px; color:var(--muted); line-height:1.7;">They tell us their interests, budget, stability preference, and goals. Our engine matches them to the right career universe — Engineering, Medical, Commerce, Agriculture, Design, and more.</div>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px; padding-bottom:28px;">
+        <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
+          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--orange),#e07b00); display:flex; align-items:center; justify-content:center; font-weight:800; color:white; font-size:14px; flex-shrink:0;">2</div>
+          <div style="width:2px; flex:1; min-height:24px; background:var(--border); margin:4px 0;"></div>
+        </div>
+        <div style="padding-top:6px;">
+          <div style="font-weight:700; font-size:16px; margin-bottom:6px;">Your college appears on their roadmap</div>
+          <div style="font-size:14px; color:var(--muted); line-height:1.7;">Every career path page lists the colleges that offer that program. Your college is shown to students who are <strong style="color:var(--text)">already interested in your exact field.</strong> Not random traffic — targeted, high-intent students.</div>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px; padding-bottom:28px;">
+        <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
+          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--green),#167a34); display:flex; align-items:center; justify-content:center; font-weight:800; color:white; font-size:14px; flex-shrink:0;">3</div>
+          <div style="width:2px; flex:1; min-height:24px; background:var(--border); margin:4px 0;"></div>
+        </div>
+        <div style="padding-top:6px;">
+          <div style="font-weight:700; font-size:16px; margin-bottom:6px;">Student explores your full profile</div>
+          <div style="font-size:14px; color:var(--muted); line-height:1.7;">Placement records, faculty highlights, scholarships, campus life, research opportunities — everything a parent and student want to know, in one place.</div>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px;">
+        <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
+          <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#9333ea,#7b2db8); display:flex; align-items:center; justify-content:center; font-weight:800; color:white; font-size:14px; flex-shrink:0;">4</div>
+        </div>
+        <div style="padding-top:6px;">
+          <div style="font-weight:700; font-size:16px; margin-bottom:6px;">They raise their hand — you follow up</div>
+          <div style="font-size:14px; color:var(--muted); line-height:1.7;">Students who are interested click "I want to know more." You get a verified, high-intent lead — a student who specifically chose your field and chose to contact your college.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 5 — OLD WAY vs NEW WAY
+══════════════════════════════════════════════════ -->
+<div class="slide" id="slide-5">
+  <span class="slide-num">05 / 10</span>
+  <div class="slide-inner">
+    <div class="label">The Shift</div>
+    <h2 style="font-size:clamp(26px,4vw,44px); font-weight:800; margin-bottom:12px;">
+      Stop Shouting Into the Crowd.<br/><span class="b">Start Reaching the Right Person.</span>
+    </h2>
+    <div class="divider"></div>
+
+    <div class="vs-grid">
+      <div class="vs-col vs-old">
+        <div class="vs-title" style="color:#ef4444;">❌ The Old Way</div>
+        <div class="vs-item">Newspaper ads reaching everyone — and no one specific</div>
+        <div class="vs-item">Education fair stalls where hundreds of colleges compete for attention</div>
+        <div class="vs-item">Paying ₹5–50L to ranking portals who rank you based on how much you pay</div>
+        <div class="vs-item">Social media ads to a broad audience that isn't even close to decision-making</div>
+        <div class="vs-item">Students who call your inquiry line don't know why they're calling — they called everyone</div>
+        <div class="vs-item">You have no data on who looked at your college, what they were interested in, or why they left</div>
+      </div>
+      <div class="vs-col vs-new">
+        <div class="vs-title" style="color:var(--green);">✅ The BharatEduVerse Way</div>
+        <div class="vs-item">Your college appears only to students who are already interested in your exact program</div>
+        <div class="vs-item">Your listing is on a platform students actively use for career decisions — not casual browsing</div>
+        <div class="vs-item">Zero paid rankings — your listing is based purely on merit, which means students trust it</div>
+        <div class="vs-item">Students arrive at your profile already knowing your field, your courses, and why they might fit</div>
+        <div class="vs-item">Every inquiry is from a student who chose to contact you after reading your detailed profile</div>
+        <div class="vs-item">You get data — how many students viewed your profile, what career they were exploring, which programs interest them</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 6 — WHAT STUDENTS SEE
+══════════════════════════════════════════════════ -->
+<div class="slide story-slide" id="slide-6">
+  <span class="slide-num">06 / 10</span>
+  <div class="slide-inner">
+    <div class="label">The Student Experience</div>
+    <h2 style="font-size:clamp(26px,4vw,44px); font-weight:800; margin-bottom:12px;">
+      Your College at the <span class="o">Moment of Decision</span>
+    </h2>
+    <div class="divider"></div>
+
+    <p class="story-text" style="margin-bottom:32px; text-align:left;">
+      Picture this. A student named Arjun from Kurnool just finished his 12th with 87%.
+      He takes MPC. He's interested in Aerospace. He opens BharatEduVerse, answers a few questions.
+      The platform shows him the Aerospace career path — the roadmap, the exams, the income, the future scope.
+      <br/><br/>
+      <strong>And right there, under "Top Colleges for Aerospace," your institution appears.</strong>
+      Not because you paid the most. Because you have an Aerospace program and your data is on the platform.
+      Arjun's father is sitting next to him. They read your placement record. They see the scholarship options.
+      They see that three of your alumni work at HAL and DRDO.
+      <br/><br/>
+      Arjun's father says — <em>"Beta, this college looks good. Let's find out more."</em>
+      <br/><br/>
+      <strong>That's the moment BharatEduVerse creates for you.</strong>
+    </p>
+
+    <div class="card-grid card-grid-3">
+      <div class="card feature">
+        <div class="feature-icon">📋</div>
+        <div>
+          <div class="feature-title">Your Full Profile</div>
+          <div class="feature-desc">Courses, placements, faculty, campus, scholarships — everything visible to students already considering your field.</div>
+        </div>
+      </div>
+      <div class="card feature">
+        <div class="feature-icon">🎯</div>
+        <div>
+          <div class="feature-title">Context-Matched Listing</div>
+          <div class="feature-desc">You appear on the exact career paths your college supports. CSE college shows on CSE path. Agriculture college shows on agriculture path. Always relevant.</div>
+        </div>
+      </div>
+      <div class="card feature">
+        <div class="feature-icon">📊</div>
+        <div>
+          <div class="feature-title">Trust Through Transparency</div>
+          <div class="feature-desc">Students trust us because we don't take money to rank. When they see your college here, they know it's earned — not bought. That trust transfers to you.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 7 — WHAT YOU GET
+══════════════════════════════════════════════════ -->
+<div class="slide" id="slide-7">
+  <span class="slide-num">07 / 10</span>
+  <div class="slide-inner">
+    <div class="label">For Your Institution</div>
+    <h2 style="font-size:clamp(26px,4vw,44px); font-weight:800; margin-bottom:12px;">
+      A Partnership Built on <span class="g">Mutual Benefit</span>
+    </h2>
+    <div class="divider"></div>
+
+    <div class="card-grid card-grid-2" style="margin-bottom:24px;">
+      <div class="card feature">
+        <div class="feature-icon">🆓</div>
+        <div>
+          <div class="feature-title" style="color:var(--green);">Basic Listing — Free</div>
+          <div class="feature-desc">Your college name, location, programs, and contact information listed under every relevant career path. No cost to get started. Your students will find you.</div>
+        </div>
+      </div>
+      <div class="card feature">
+        <div class="feature-icon">✨</div>
+        <div>
+          <div class="feature-title" style="color:var(--orange);">Enhanced Profile — Paid</div>
+          <div class="feature-desc">Rich media, placement records, faculty highlights, alumni stories, scholarship details, video tour — everything that converts a viewer into an inquiry.</div>
+        </div>
+      </div>
+      <div class="card feature">
+        <div class="feature-icon">📈</div>
+        <div>
+          <div class="feature-title" style="color:#4d8bff;">Analytics Dashboard</div>
+          <div class="feature-desc">See how many students viewed your profile this month, which programs they explored, which state they're from, and what career path brought them to you.</div>
+        </div>
+      </div>
+      <div class="card feature">
+        <div class="feature-icon">📬</div>
+        <div>
+          <div class="feature-title" style="color:#9333ea;">Verified Lead Collection</div>
+          <div class="feature-desc">Students who opt-in to be contacted. Every lead is a real student who specifically looked at your college and raised their hand. No cold calls. No wasted effort.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust-box">
+      <div style="font-size:20px; margin-bottom:8px;">🛡️</div>
+      <div style="font-weight:700; font-size:16px; color:var(--orange); margin-bottom:8px;">Our Promise to Students — and to You</div>
+      <p style="font-size:14px; color:var(--muted); line-height:1.7; max-width:600px; margin:0 auto;">
+        We will never take money to rank a college higher. This protects students — and it protects you.
+        Because when students trust our platform, they trust the colleges we list.
+        Your listing on BharatEduVerse carries credibility that no paid ranking can give you.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 8 — THE TIMING
+══════════════════════════════════════════════════ -->
+<div class="slide story-slide" id="slide-8">
+  <span class="slide-num">08 / 10</span>
+  <div class="slide-inner" style="text-align:center;">
+    <span class="story-emoji">⏰</span>
+    <h2 class="story-heading">The Best Time to Plant a Tree<br/>Was Twenty Years Ago.<br/><span class="o">The Second Best Time Is Now.</span></h2>
+    <div class="divider divider-center"></div>
+
+    <p class="story-text" style="margin-bottom:36px;">
+      BharatEduVerse is new. That means the colleges who join us early get something irreplaceable —
+      <strong>early presence</strong> on a platform that is being built from scratch with trust at its core.
+      <br/><br/>
+      Think about what happened with JustDial, Zomato, Amazon — the businesses that listed early
+      got the most reviews, the most visibility, the most trust.
+      <strong>They set the benchmark</strong> that new entrants had to catch up to.
+      <br/><br/>
+      Right now, BharatEduVerse is building its college directory. Every college that comes on board now helps shape
+      how the platform evolves — and gets first-mover presence when lakhs of students start using it.
+      <br/><br/>
+      <strong>This is that moment.</strong> The platform is small today. But it's building something real.
+      And the colleges that believed in it early will be the ones that benefit most when it grows.
+    </p>
+
+    <div class="card-grid card-grid-3" style="text-align:left;">
+      <div class="card" style="text-align:center; padding:24px;">
+        <div style="font-size:32px; margin-bottom:10px;">🏆</div>
+        <div style="font-weight:700; color:var(--orange); margin-bottom:6px;">First Mover</div>
+        <div style="font-size:13px; color:var(--muted);">Top placement in your category while competition is low</div>
+      </div>
+      <div class="card" style="text-align:center; padding:24px;">
+        <div style="font-size:32px; margin-bottom:10px;">🤝</div>
+        <div style="font-weight:700; color:var(--green); margin-bottom:6px;">Shape the Platform</div>
+        <div style="font-size:13px; color:var(--muted);">Your feedback directly influences what we build next</div>
+      </div>
+      <div class="card" style="text-align:center; padding:24px;">
+        <div style="font-size:32px; margin-bottom:10px;">💰</div>
+        <div style="font-weight:700; color:#4d8bff; margin-bottom:6px;">Founding Price</div>
+        <div style="font-size:13px; color:var(--muted);">Early partners get pricing that will never be available again</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 9 — PRICING PHILOSOPHY
+══════════════════════════════════════════════════ -->
+<div class="slide" id="slide-9">
+  <span class="slide-num">09 / 10</span>
+  <div class="slide-inner">
+    <div class="label">Partnership Model</div>
+    <h2 style="font-size:clamp(26px,4vw,44px); font-weight:800; margin-bottom:12px;">
+      Start Free. <span class="o">Grow With Us.</span>
+    </h2>
+    <div class="divider"></div>
+
+    <p class="story-text" style="margin-bottom:32px; text-align:left;">
+      We're not here to take your money upfront and disappear.
+      We grow when you grow. Our model is designed to prove value first — then earn your trust.
+    </p>
+
+    <div class="card">
+      <div class="phase">
+        <span class="phase-badge" style="background:rgba(30,142,62,0.15); color:var(--green); border:1px solid rgba(30,142,62,0.3);">Start — Free</span>
+        <div>
+          <div style="font-weight:700; font-size:15px; margin-bottom:5px;">Basic College Listing</div>
+          <div style="font-size:13px; color:var(--muted); line-height:1.6;">Your college appears on every relevant career path page. Students can see your name, location, programs offered, and basic contact info. No credit card. No contract. Start today.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <span class="phase-badge" style="background:rgba(255,140,0,0.12); color:var(--orange); border:1px solid rgba(255,140,0,0.3);">Phase 2 — Paid</span>
+        <div>
+          <div style="font-weight:700; font-size:15px; margin-bottom:5px;">Enhanced Profile</div>
+          <div style="font-size:13px; color:var(--muted); line-height:1.6;">Rich college profile — photos, placement data, faculty highlights, scholarship listings, alumni stories, video tour, priority placement in category. Converts browsers into inquiries.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <span class="phase-badge" style="background:rgba(15,82,186,0.12); color:#4d8bff; border:1px solid rgba(15,82,186,0.3);">Phase 3 — Analytics</span>
+        <div>
+          <div style="font-weight:700; font-size:15px; margin-bottom:5px;">Insights Dashboard</div>
+          <div style="font-size:13px; color:var(--muted); line-height:1.6;">Know your audience — monthly profile views, student demographics, which programs attract the most interest, which states your inquiries come from. Data to plan admissions strategy.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <span class="phase-badge" style="background:rgba(147,51,234,0.12); color:#a855f7; border:1px solid rgba(147,51,234,0.3);">Phase 4 — Leads</span>
+        <div>
+          <div style="font-weight:700; font-size:15px; margin-bottom:5px;">Verified Lead Generation</div>
+          <div style="font-size:13px; color:var(--muted); line-height:1.6;">Pay only for students who raised their hand and opted in to be contacted by your college. Verified phone number, career interest, location, and budget bracket included with every lead.</div>
+        </div>
+      </div>
+      <div style="padding:16px 0 4px; display:flex; gap:12px; align-items:center;">
+        <span style="font-size:20px;">🚫</span>
+        <div style="font-size:14px; font-weight:700; color:#ef4444;">We will never charge to rank you higher. Your ranking is your merit.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 10 — CLOSING CTA
+══════════════════════════════════════════════════ -->
+<div class="slide" id="slide-10" style="background: radial-gradient(ellipse at center, rgba(15,82,186,0.08) 0%, transparent 60%), var(--bg); text-align:center;">
+  <span class="slide-num">10 / 10</span>
+  <div class="slide-inner">
+    <img src="public/logo.png" alt="BharatEduVerse" class="logo-hero" />
+
+    <h2 style="font-size:clamp(28px,5vw,52px); font-weight:800; line-height:1.15; margin-bottom:20px;">
+      Your College Deserves to Be <span class="g">Found</span><br/>by the <span class="o">Right Student.</span>
+    </h2>
+
+    <p style="font-size:clamp(15px,2vw,18px); color:var(--muted); line-height:1.8; max-width:600px; margin:0 auto 40px;">
+      The best shop in the market shouldn't stay hidden.
+      The students who are right for your college are out there — they just don't know you exist yet.
+      <br/><br/>
+      <strong style="color:var(--text);">Let's change that.</strong>
+    </p>
+
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:40px;">
+      <button class="cta-btn cta-primary" onclick="alert('Thank you for your interest! Our team will reach out to you shortly.')">
+        🏛️ &nbsp; List Your College — Free
+      </button>
+      <button class="cta-btn cta-secondary" onclick="alert('We will schedule a demo call with you shortly!')">
+        📞 &nbsp; Schedule a Demo
+      </button>
+    </div>
+
+    <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:28px; max-width:480px; margin:0 auto;">
+      <div style="font-size:24px; font-weight:800; font-family:'Poppins',sans-serif; margin-bottom:8px;">
+        <span style="color:var(--orange)">Bharat</span><span style="color:var(--text)">Edu</span><span style="color:var(--green)">Verse</span>
+      </div>
+      <div style="font-size:14px; color:var(--muted); margin-bottom:16px;">India's Career Discovery Platform</div>
+      <div style="display:flex; flex-direction:column; gap:6px; text-align:left;">
+        <div style="font-size:13px; color:var(--muted);">📧 colleges@bharateduverse.in</div>
+        <div style="font-size:13px; color:var(--muted);">🌐 bharateduverse.in</div>
+        <div style="font-size:13px; color:var(--muted);">📍 Andhra Pradesh, India</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  function goTo(i) { slides[i].scrollIntoView({ behavior: 'smooth' }); }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const i = Array.from(slides).indexOf(e.target);
+        dots.forEach(d => d.classList.remove('active'));
+        if (dots[i]) dots[i].classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 });
+  slides.forEach(s => obs.observe(s));
+</script>
+
+</body>
+</html>
