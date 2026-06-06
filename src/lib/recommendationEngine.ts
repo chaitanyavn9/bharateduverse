@@ -12,17 +12,26 @@ const WEIGHTS = {
 };
 
 const INTEREST_MAP: Record<string, string[]> = {
-  technology: ["cse", "ece", "quantum"],
+  technology: ["cse", "ece", "quantum", "semiconductor"],
   medicine: ["mbbs", "pharmacy"],
-  space: ["aerospace", "research-phd", "quantum"],
-  environment: ["sustainability", "oceanography", "agriculture"],
+  space: ["aerospace", "research-phd", "quantum", "gis-remote-sensing"],
+  environment: ["sustainability", "oceanography", "agriculture", "gis-remote-sensing"],
   finance: ["ca", "cma", "cs", "actuarial", "finance-stock"],
   design: ["architecture", "interior-design"],
-  defence: ["nda", "aerospace"],
-  government: ["ias", "ssc", "banking"],
+  defence: ["nda", "aerospace", "nuclear"],
+  government: ["ias", "ssc", "banking", "public-policy"],
   agriculture: ["agriculture", "food-tech"],
-  research: ["research-phd", "quantum", "oceanography"],
-  engineering: ["cse", "ece", "mechanical", "civil", "aerospace"],
+  research: ["research-phd", "quantum", "oceanography", "nuclear", "semiconductor"],
+  engineering: ["cse", "ece", "mechanical", "civil", "aerospace", "semiconductor"],
+  skilled: ["electrician-trade", "iti", "polytechnic"],
+  logistics: ["supply-chain"],
+  ocean: ["oceanography", "maritime"],
+  aviation: ["aviation", "aerospace"],
+  media: ["journalism"],
+  language: ["linguistics"],
+  policy: ["public-policy", "ias"],
+  mapping: ["gis-remote-sensing"],
+  chips: ["semiconductor", "ece"],
   business: ["ca", "cs", "finance-stock"],
 };
 
