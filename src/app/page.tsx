@@ -16,18 +16,22 @@ const discoveryModes = [
 ];
 
 const universes = [
-  { icon: "⚙️", label: "Engineering", count: "50+ branches", href: "/discover?universe=Engineering" },
-  { icon: "🏥", label: "Medical", count: "NEET, MBBS, Pharmacy", href: "/discover?universe=Medical" },
-  { icon: "🏛️", label: "Government", count: "UPSC, SSC, Banking", href: "/discover?universe=Government" },
-  { icon: "🛡️", label: "Defence", count: "NDA, CDS, DRDO", href: "/discover?universe=Defence" },
+  { icon: "⚙️", label: "Engineering", count: "CSE, ECE, Aerospace, Semiconductor", href: "/discover?universe=Engineering" },
+  { icon: "🏥", label: "Medical", count: "MBBS, Pharmacy, Nursing", href: "/discover?universe=Medical" },
+  { icon: "🏛️", label: "Government", count: "UPSC, SSC, Banking, Public Policy", href: "/discover?universe=Government" },
+  { icon: "🛡️", label: "Defence", count: "NDA, CDS, DRDO, Nuclear", href: "/discover?universe=Defence" },
   { icon: "🔬", label: "Research & PhD", count: "NET, JRF, GATE", href: "/discover?universe=Research" },
   { icon: "📐", label: "Professional", count: "CA, CS, CMA, Actuarial", href: "/discover?universe=Professional" },
-  { icon: "🌿", label: "Sustainability", count: "Green, Climate, Water", href: "/discover?universe=Sustainability" },
-  { icon: "🎨", label: "Design", count: "Architecture, Interior", href: "/discover?universe=Design" },
+  { icon: "🌿", label: "Sustainability", count: "Green, Climate, Water, GIS", href: "/discover?universe=Sustainability" },
+  { icon: "🎨", label: "Design", count: "Architecture, Interior, UI/UX", href: "/discover?universe=Design" },
   { icon: "💹", label: "Finance", count: "Stock, CA, FinTech", href: "/discover?universe=Finance" },
-  { icon: "🌾", label: "Agriculture", count: "AgriTech, Horticulture", href: "/discover?universe=Agriculture" },
-  { icon: "🍱", label: "Food Tech", count: "Processing, Nutrition", href: "/discover?universe=Food" },
-  { icon: "⚛️", label: "Emerging Tech", count: "Quantum, Space, Oceans", href: "/discover?universe=Emerging" },
+  { icon: "🌾", label: "Agriculture", count: "AgriTech, Horticulture, Fisheries", href: "/discover?universe=Agriculture" },
+  { icon: "🍱", label: "Food Tech", count: "Processing, Nutrition, Export", href: "/discover?universe=Food" },
+  { icon: "⚛️", label: "Emerging Tech", count: "Quantum, Maritime, Aviation, GIS, Nuclear", href: "/discover?universe=Emerging" },
+  { icon: "📰", label: "Media & Language", count: "Journalism, Linguistics", href: "/discover?universe=Education" },
+  { icon: "🚢", label: "Maritime & Aviation", count: "Merchant Navy, Pilot, ATC", href: "/discover?universe=Emerging" },
+  { icon: "🚚", label: "Supply Chain", count: "Logistics, Port Ops, Warehousing", href: "/discover?universe=Engineering" },
+  { icon: "🔧", label: "Skilled Trades", count: "Electrician, HVAC, ITI, Polytechnic", href: "/discover?universe=Vocational" },
 ];
 
 const stats = [
