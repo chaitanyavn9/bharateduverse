@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BharatEduVerse — Presentation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange: #FF8C00;
+      --green: #1E8E3E;
+      --blue: #0F52BA;
+      --bg: #0B1020;
+      --card: #111827;
+      --border: #1e293b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+
+    /* ── SLIDE WRAPPER ── */
+    .slide {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 40px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .slide-inner { max-width: 960px; width: 100%; }
+
+    /* ── SLIDE NUMBERS ── */
+    .slide-num {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* ── SLIDE 1 — HERO ── */
+    #slide-1 {
+      background: radial-gradient(ellipse at top, rgba(255,140,0,0.1) 0%, transparent 60%),
+                  radial-gradient(ellipse at bottom right, rgba(30,142,62,0.07) 0%, transparent 60%),
+                  var(--bg);
+      text-align: center;
+    }
+
+    .logo-hero {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      margin-bottom: 24px;
+      filter: drop-shadow(0 8px 40px rgba(255,140,0,0.3));
+      -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 80%);
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 80%);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,140,0,0.1);
+      border: 1px solid rgba(255,140,0,0.25);
+      border-radius: 20px;
+      padding: 6px 18px;
+      font-size: 13px;
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .o { color: var(--orange); }
+    .g { color: var(--green); }
+    .b { color: var(--blue); }
+    .w { color: var(--text); }
+
+    .hero-tagline {
+      font-size: clamp(16px, 2.5vw, 22px);
+      color: var(--muted);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .pill-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      padding: 8px 20px;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid;
+    }
+
+    .pill-o { background: rgba(255,140,0,0.12); color: var(--orange); border-color: rgba(255,140,0,0.3); }
+    .pill-g { background: rgba(30,142,62,0.12); color: var(--green); border-color: rgba(30,142,62,0.3); }
+    .pill-b { background: rgba(15,82,186,0.12); color: #4d8bff; border-color: rgba(15,82,186,0.3); }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .card-grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card-grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .card-grid-4 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+
+    /* ── PROBLEM SLIDE ── */
+    .problem-stat {
+      text-align: center;
+      padding: 32px 24px;
+    }
+
+    .problem-num {
+      font-size: 52px;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .problem-label {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── FEATURE ROW ── */
+    .feature {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 20px 24px;
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .feature-title {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .feature-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── ROADMAP ── */
+    .roadmap {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .roadmap-step {
+      text-align: center;
+      padding: 16px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      min-width: 110px;
+    }
+
+    .roadmap-step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), #e07b00);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 0 auto 8px;
+      color: white;
+    }
+
+    .roadmap-step-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .roadmap-arrow {
+      font-size: 20px;
+      color: var(--muted);
+      padding: 0 6px;
+    }
+
+    /* ── TABLE ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th {
+      text-align: left;
+      padding: 12px 16px;
+      background: rgba(255,140,0,0.08);
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    td:first-child { color: var(--text); font-weight: 500; }
+
+    tr:last-child td { border-bottom: none; }
+
+    /* ── UNIVERSE GRID ── */
+    .universe-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: border-color 0.2s;
+    }
+
+    .universe-chip:hover { border-color: var(--orange); }
+    .universe-emoji { font-size: 22px; }
+    .universe-label { font-weight: 600; font-size: 14px; }
+    .universe-sub { font-size: 11px; color: var(--muted); }
+
+    /* ── REVENUE SLIDE ── */
+    .revenue-phase {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .revenue-phase:last-child { border-bottom: none; }
+
+    .revenue-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── CTA SLIDE ── */
+    #slide-last {
+      background: radial-gradient(ellipse at center, rgba(255,140,0,0.08) 0%, transparent 60%), var(--bg);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: clamp(32px, 5vw, 60px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .cta-sub {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--orange), #e07b00);
+      color: white;
+      box-shadow: 0 4px 24px rgba(255,140,0,0.3);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,140,0,0.4); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--orange), var(--green));
+      border-radius: 2px;
+      margin: 16px 0 32px;
+    }
+
+    /* ── NAV DOTS ── */
+    #nav-dots {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .dot.active { background: var(--orange); transform: scale(1.4); }
+
+    /* ── QUOTE ── */
+    .quote {
+      font-size: clamp(18px, 3vw, 28px);
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+      border-left: 4px solid var(--orange);
+      padding-left: 24px;
+      margin: 24px 0;
+    }
+
+    /* ── AP BOX ── */
+    .ap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .ap-chip {
+      background: rgba(30,142,62,0.08);
+      border: 1px solid rgba(30,142,62,0.2);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #34d058;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .slide { padding: 48px 20px; }
+      #nav-dots { display: none; }
+      .roadmap { flex-direction: column; align-items: center; }
+      .roadmap-arrow { transform: rotate(90deg); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV DOTS -->
+<div id="nav-dots">
+  <button class="dot active" onclick="scrollTo(0)" title="Cover"></button>
+  <button class="dot" onclick="scrollTo(1)" title="Problem"></button>
+  <button class="dot" onclick="scrollTo(2)" title="Solution"></button>
+  <button class="dot" onclick="scrollTo(3)" title="Features"></button>
+  <button class="dot" onclick="scrollTo(4)" title="Discovery Flow"></button>
+  <button class="dot" onclick="scrollTo(5)" title="Career Universes"></button>
+  <button class="dot" onclick="scrollTo(6)" title="AP Opportunities"></button>
+  <button class="dot" onclick="scrollTo(7)" title="Compare Engine"></button>
+  <button class="dot" onclick="scrollTo(8)" title="Revenue"></button>
+  <button class="dot" onclick="scrollTo(9)" title="Tech Stack"></button>
+  <button class="dot" onclick="scrollTo(10)" title="Roadmap"></button>
+  <button class="dot" onclick="scrollTo(11)" title="CTA"></button>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 1 — COVER
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="slide-1">
+  <span class="slide-num">01 / 12</span>
+  <div class="slide-inner" style="text-align:center;">
+    <img src="public/logo.png" alt="BharatEduVerse Logo" class="logo-hero" />
+    <div class="hero-badge">🇮🇳 &nbsp; India's Education + Career Discovery Platform</div>
+    <h1 class="hero-title">
+      <span class="o">Bharat</span><span class="w">Edu</span><span class="g">Verse</span>
+    </h1>
+    <p class="hero-tagline">
+      Choose Studies Based on <strong style="color:var(--orange)">Opportunities</strong>, Not Trends.<br/>
+      Learn for Tomorrow &nbsp;•&nbsp; Build for India
+    </p>
+    <div class="pill-row">
+      <span class="pill pill-o">Students</span>
+      <span class="pill pill-g">Parents</span>
+      <span class="pill pill-b">Educators</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 2 — THE PROBLEM
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="slide-2">
+  <span class="slide-num">02 / 12</span>
+  <div class="slide-inner">
+    <div class="section-header">
+      <div class="section-label">The Problem</div>
+      <h2 class="section-title">India's Students Are <span class="o">Flying Blind</span></h2>
+      <div class="divider"></div>
+      <p class="section-sub">
+        In a country with 1.4 billion people, millions of students make one of life's biggest decisions — what to study — based on what's trending, not what's actually available or needed.
+      </p>
+    </div>
+
+    <div class="card-grid card-grid-4">
+      <div class="card problem-stat">
+        <div class="problem-num" style="color:var(--orange)">90%</div>
+        <div class="problem-label">of students choose from only a handful of courses</div>
+      </div>
+      <div class="card problem-stat">
+        <div class="problem-num" style="color:#ef4444">800+</div>
+        <div class="problem-label">career paths exist in India that most students never hear about</div>
+      </div>
+      <div class="card problem-stat">
+        <div class="problem-num" style="color:var(--green)">47%</div>
+        <div class="problem-label">of graduates are underemployed or in unrelated fields</div>
+      </div>
+      <div class="card problem-stat">
+        <div class="problem-num" style="color:var(--blue)">0</div>
+        <div class="problem-label">platforms that show state-specific, opportunity-based guidance</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px; padding: 24px 28px;">
+      <p style="font-size:15px; color:var(--muted); line-height:1.8;">
+        Students don't know what jobs exist in their own state, what industries are coming up, what national goals create new opportunities, or whether they should choose a job, research, or entrepreneurship path.
+        <strong style="color:var(--text)"> Nobody is telling them the full picture.</strong>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 3 — THE SOLUTION
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="slide-3">
+  <span class="slide-num">03 / 12</span>
+  <div class="slide-inner">
+    <div class="section-header">
+      <div class="section-label">The Solution</div>
+      <h2 class="section-title">A Platform That Shows the <span class="g">Full Picture</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="quote">
+      "Best Fit for You — Not Best Career"
+    </div>
+
+    <div class="card-grid card-grid-2" style="margin-top:32px;">
+      <div class="card">
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:10px; color:var(--orange)">What we map</h3>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:8px;">
+          <li style="font-size:14px; color:var(--muted)">✅ Every career path from ITI to PhD</li>
+          <li style="font-size:14px; color:var(--muted)">✅ Real income data at entry, mid, senior level</li>
+          <li style="font-size:14px; color:var(--muted)">✅ Jobs and companies by state</li>
+          <li style="font-size:14px; color:var(--muted)">✅ Upcoming industries and national missions</li>
+          <li style="font-size:14px; color:var(--muted)">✅ Entrepreneur vs job vs research vs govt paths</li>
+          <li style="font-size:14px; color:var(--muted)">✅ Every major entrance exam in India</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:10px; color:var(--green)">How it works</h3>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:8px;">
+          <li style="font-size:14px; color:var(--muted)">🎯 Student answers 9 simple questions</li>
+          <li style="font-size:14px; color:var(--muted)">🔢 Rule engine scores every path on 10 parameters</li>
+          <li style="font-size:14px; color:var(--muted)">📊 Top matches shown with full breakdown</li>
+          <li style="font-size:14px; color:var(--muted)">⚖️ Compare up to 3 paths side by side</li>
+          <li style="font-size:14px; color:var(--muted)">🗺️ Get the complete roadmap for chosen path</li>
+          <li style="font-size:14px; color:var(--muted)">💰 No paid AI — free, fast, no bias</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 4 — KEY FEATURES
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="slide-4">
+  <span class="slide-num">04 / 12</span>
+  <div class="slide-inner">
+    <div class="section-header">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Everything in <span class="o">One Place</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="card-grid card-grid-2">
+      <div class="card feature">
+        <div class="feature-icon">🧭</div>
+        <div>
+          <div class="feature-title">Smart Discovery Engine</div>
+          <div class="feature-desc">9-step questionnaire covering interests, budget, stability, income goals, research appetite, and location. Rule-based scoring — no expensive AI APIs.</div>
+        </div>
+      </div>
+      <div class="card feature">
+        <div class="feature-icon">⚖️</div>
+        <div>
+          <div class="feature-title">Career Compare Engine</div>
+          <div class="feature-desc">Side-by-side comparison of up to 3 career paths across 10 parameters: income, job security, AI resistance, entrepreneurship, research, work-life balance, and more.</div>
+        </div>
+      </div>
+      <div class="card feature">
+        <div class="feature-icon">🗺️</div>
+        <div>
+          <div class="feature-title">Full Career Roadmaps</div>
+          <div class="feature-desc">Every path shows the complete journey: 10th → 12th → Degree → PG → Job/Research/Startup. With key exams, top colleges, and companies at each stage.</div>
+        </div>
+      </div>
+      <div class="card feature">
+        <div class="feature-icon">📍</div>
+        <div>
+          <div class="feature-title">State-Level Opportunities</div>
+          <div class="feature-desc">Highlights what's being built in Andhra Pradesh and other states — not just existing companies but upcoming industries, national missions, and govt projects.</div>
+        </div>
+      </div>
+      <div class="card feature">
+        <div class="feature-icon">🎓</div>
+        <div>
+          <div class="feature-title">Complete Exam Guide</div>
+          <div class="feature-desc">JEE, NEET, UPSC, GATE, SSC, IBPS, NDA, EAMCET — every major Indian exam with eligibility, dates, difficulty, seats, and which career paths they unlock.</div>
+        </div>
+      </div>
+      <div class="card feature">
+        <div class="feature-icon">🔬</div>
+        <div>
+          <div class="feature-title">Research & Incubation Hub</div>
+          <div class="feature-desc">Fellowships (PMRF ₹80K/month, CSIR JRF, UGC NET), incubation centres (Tata, T-Hub, IIT TechInc), and national research missions worth ₹50,000 Cr+.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 5 — DISCOVERY FLOW
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="slide-5">
+  <span class="slide-num">05 / 12</span>
+  <div class="slide-inner" style="text-align:center;">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">From <span class="o">Confusion</span> to <span class="g">Clarity</span></h2>
+      <div class="divider" style="margin:16px auto 0;"></div>
+    </div>
+
+    <div style="margin: 40px 0;">
+      <p style="font-size:14px; color:var(--muted); margin-bottom:24px; font-weight:600; letter-spacing:1px; text-transform:uppercase;">6 Ways to Start Your Discovery</p>
+      <div class="card-grid card-grid-3" style="text-align:left; margin-bottom:40px;">
+        <div class="card" style="padding:16px 20px;">
+          <div style="font-size:20px; margin-bottom:6px;">⭐</div>
+          <div style="font-weight:600; font-size:14px; margin-bottom:4px;">Interest First</div>
+          <div style="font-size:12px; color:var(--muted);">What excites you?</div>
+        </div>
+        <div class="card" style="padding:16px 20px;">
+          <div style="font-size:20px; margin-bottom:6px;">⚡</div>
+          <div style="font-weight:600; font-size:14px; margin-bottom:4px;">Problem First</div>
+          <div style="font-size:12px; color:var(--muted);">What do you want to solve?</div>
+        </div>
+        <div class="card" style="padding:16px 20px;">
+          <div style="font-size:20px; margin-bottom:6px;">🏭</div>
+          <div style="font-weight:600; font-size:14px; margin-bottom:4px;">Industry First</div>
+          <div style="font-size:12px; color:var(--muted);">Which sector interests you?</div>
+        </div>
+        <div class="card" style="padding:16px 20px;">
+          <div style="font-size:20px; margin-bottom:6px;">💼</div>
+          <div style="font-weight:600; font-size:14px; margin-bottom:4px;">Job First</div>
+          <div style="font-size:12px; color:var(--muted);">Which role excites you?</div>
+        </div>
+        <div class="card" style="padding:16px 20px;">
+          <div style="font-size:20px; margin-bottom:6px;">🔬</div>
+          <div style="font-weight:600; font-size:14px; margin-bottom:4px;">Research First</div>
+          <div style="font-size:12px; color:var(--muted);">Want to push science forward?</div>
+        </div>
+        <div class="card" style="padding:16px 20px;">
+          <div style="font-size:20px; margin-bottom:6px;">🚀</div>
+          <div style="font-weight:600; font-size:14px; margin-bottom:4px;">Entrepreneur First</div>
+          <div style="font-size:12px; color:var(--muted);">Want to build a company?</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:14px; color:var(--muted); margin-bottom:20px; font-weight:600; letter-spacing:1px; text-transform:uppercase;">Universal Path</p>
+    <div class="roadmap">
+      <div class="roadmap-step"><div class="roadmap-step-num">1</div><div class="roadmap-step-label">Interest</div></div>
+      <div class="roadmap-arrow">→</div>
+      <div class="roadmap-step"><div class="roadmap-step-num">2</div><div class="roadmap-step-label">Goal</div></div>
+      <div class="roadmap-arrow">→</div>
+      <div class="roadmap-step"><div class="roadmap-step-num">3</div><div class="roadmap-step-label">Study</div></div>
+      <div class="roadmap-arrow">→</div>
+      <div class="roadmap-step"><div class="roadmap-step-num">4</div><div class="roadmap-step-label">Career</div></div>
+      <div class="roadmap-arrow">→</div>
+      <div class="roadmap-step"><div class="roadmap-step-num">5</div><div class="roadmap-step-label">Research</div></div>
+      <div class="roadmap-arrow">→</div>
+      <div class="roadmap-step"><div class="roadmap-step-num">6</div><div class="roadmap-step-label">Startup</div></div>
+      <div class="roadmap-arrow">→</div>
+      <div class="roadmap-step"><div class="roadmap-step-num">7</div><div class="roadmap-step-label">Impact</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 6 — CAREER UNIVERSES
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="slide-6">
+  <span class="slide-num">06 / 12</span>
+  <div class="slide-inner">
+    <div class="section-header">
+      <div class="section-label">Coverage</div>
+      <h2 class="section-title">13 Career <span class="o">Universes</span></h2>
+      <div class="divider"></div>
+      <p class="section-sub">From ITI after 10th to PhD — every path in India's education system, mapped.</p>
+    </div>
+
+    <div class="card-grid card-grid-3">
+      <div class="universe-chip"><span class="universe-emoji">⚙️</span><div><div class="universe-label">Engineering</div><div class="universe-sub">CSE, ECE, Aerospace, Civil, Mech</div></div></div>
+      <div class="universe-chip"><span class="universe-emoji">🏥</span><div><div class="universe-label">Medical</div><div class="universe-sub">MBBS, BDS, Pharmacy, Nursing</div></div></div>
+      <div class="universe-chip"><span class="universe-emoji">📐</span><div><div class="universe-label">Professional</div><div class="universe-sub">CA, CS, CMA, Actuarial</div></div></div>
+      <div class="universe-chip"><span class="universe-emoji">🏛️</span><div><div class="universe-label">Government</div><div class="universe-sub">UPSC, SSC, Banking, Railways</div></div></div>
+      <div class="universe-chip"><span class="universe-emoji">🛡️</span><div><div class="universe-label">Defence</div><div class="universe-sub">NDA, CDS, AFCAT, DRDO</div></div></div>
+      <div class="universe-chip"><span class="universe-emoji">🔬</span><div><div class="universe-label">Research & PhD</div><div class="universe-sub">NET, JRF, GATE, Scientist</div></div></div>
+      <div class="universe-chip"><span class="universe-emoji">🌿</span><div><div class="universe-label">Sustainability</div><div class="universe-sub">Climate, Water, Waste, Energy</div></div></div>
+      <div class="universe-chip"><span class="universe-emoji">🎨</span><div><div class="universe-label">Design</div><div class="universe-sub">Architecture, Interior, UI/UX</div></div></div>
+      <div class="universe-chip"><span class="universe-emoji">💹</span><div><div class="universe-label">Finance</div><div class="universe-sub">Stock Market, FinTech, Investment</div></div></div>
+      <div class="universe-chip"><span class="universe-emoji">🌾</span><div><div class="universe-label">Agriculture</div><div class="universe-sub">AgriTech, Horticulture, Aquaculture</div></div></div>
+      <div class="universe-chip"><span class="universe-emoji">🍱</span><div><div class="universe-label">Food Tech</div><div class="universe-sub">Processing, Nutrition, Export</div></div></div>
+      <div class="universe-chip"><span class="universe-emoji">⚛️</span><div><div class="universe-label">Emerging Tech</div><div class="universe-sub">Quantum, Space, Oceanography</div></div></div>
+      <div class="universe-chip"><span class="universe-emoji">🔧</span><div><div class="universe-label">Vocational</div><div class="universe-sub">Polytechnic, ITI — after 10th</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 7 — ANDHRA PRADESH OPPORTUNITY MAP
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="slide-7">
+  <span class="slide-num">07 / 12</span>
+  <div class="slide-inner">
+    <div class="section-header">
+      <div class="section-label">State Focus</div>
+      <h2 class="section-title">Andhra Pradesh Is <span class="g">Transforming</span></h2>
+      <div class="divider"></div>
+      <p class="section-sub">
+        AP's upcoming investments create massive demand for specific skills. We map these opportunities to the exact career paths students should prepare for today.
+      </p>
+    </div>
+
+    <div class="ap-grid">
+      <div class="ap-chip">🖥️ Google AI Data Center — Amaravati</div>
+      <div class="ap-chip">🛩️ AMCA Fighter Jet Programme</div>
+      <div class="ap-chip">✈️ Aerospace City — Orvakal, Kurnool</div>
+      <div class="ap-chip">🚁 Drone City — Orvakal Industrial Hub</div>
+      <div class="ap-chip">⚛️ AP Quantum Valley Initiative</div>
+      <div class="ap-chip">💊 Pharma City — Visakhapatnam</div>
+      <div class="ap-chip">🦐 Aquaculture Export Capital (World #1)</div>
+      <div class="ap-chip">🌊 INCOIS — Ocean Science HQ, Hyderabad</div>
+      <div class="ap-chip">🚀 Reliance Data Centers</div>
+      <div class="ap-chip">🏙️ Amaravati Capital Construction</div>
+      <div class="ap-chip">🚇 Metro Rail — Vizag, Tirupati</div>
+      <div class="ap-chip">☀️ AP Solar Mission — 10,000 MW</div>
+      <div class="ap-chip">🌱 Horticulture Export — Mango, Chilli</div>
+      <div class="ap-chip">🔬 IIT + IISER Tirupati Research</div>
+      <div class="ap-chip">🏭 PCPIR Industrial Corridors</div>
+      <div class="ap-chip">🚢 Greenfield Ports — Machilipatnam</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 8 — COMPARE ENGINE
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="slide-8">
+  <span class="slide-num">08 / 12</span>
+  <div class="slide-inner">
+    <div class="section-header">
+      <div class="section-label">Compare Engine</div>
+      <h2 class="section-title">Compare Careers <span class="o">Side by Side</span></h2>
+      <div class="divider"></div>
+      <p class="section-sub">10 parameters, up to 3 careers at once. No opinion. Just data.</p>
+    </div>
+
+    <div class="card" style="overflow:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th style="color:var(--orange)">CSE / BTech</th>
+            <th style="color:var(--green)">IAS / UPSC</th>
+            <th style="color:var(--blue)">CA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Entry Income</td><td>₹4L–₹12L</td><td>₹7L–₹15L</td><td>₹6L–₹12L</td></tr>
+          <tr><td>Mid Income</td><td>₹15L–₹40L</td><td>₹15L–₹25L</td><td>₹15L–₹40L</td></tr>
+          <tr><td>Job Security</td><td>⬛⬛⬛⬛⬛⬛⬛⬛ 8/10</td><td>⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10</td><td>⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10</td></tr>
+          <tr><td>Future Scope</td><td>⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10</td><td>⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10</td><td>⬛⬛⬛⬛⬛⬛⬛⬛⬛ 9/10</td></tr>
+          <tr><td>AI Resistance</td><td>⬛⬛⬛⬛⬛⬛ 6/10</td><td>⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10</td><td>⬛⬛⬛⬛⬛⬛ 6/10</td></tr>
+          <tr><td>Entrepreneurship</td><td>⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10</td><td>⬛⬛ 2/10</td><td>⬛⬛⬛⬛⬛⬛⬛⬛ 8/10</td></tr>
+          <tr><td>Research Potential</td><td>⬛⬛⬛⬛⬛⬛⬛⬛ 8/10</td><td>⬛⬛⬛⬛⬛ 5/10</td><td>⬛⬛⬛⬛ 4/10</td></tr>
+          <tr><td>Work-Life Balance</td><td>⬛⬛⬛⬛⬛⬛ 6/10</td><td>⬛⬛⬛⬛⬛ 5/10</td><td>⬛⬛⬛⬛⬛ 5/10</td></tr>
+          <tr><td>Global Scope</td><td>⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10/10</td><td>⬛⬛⬛⬛⬛⬛⬛⬛ 8/10</td><td>⬛⬛⬛⬛⬛⬛⬛ 7/10</td></tr>
+          <tr><td>Education Cost</td><td>₹4–20L total</td><td>₹1–3L total</td><td>₹1–2L total</td></tr>
+          <tr><td>Time to First Job</td><td>~4 years</td><td>~5 years</td><td>~5 years</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 9 — REVENUE MODEL
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="slide-9">
+  <span class="slide-num">09 / 12</span>
+  <div class="slide-inner">
+    <div class="section-header">
+      <div class="section-label">Business Model</div>
+      <h2 class="section-title">Revenue From <span class="o">Colleges</span>, Never From Students</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Students and parents use BharatEduVerse free — always. Colleges pay to reach the right students at the right time.</p>
+    </div>
+
+    <div class="card">
+      <div class="revenue-phase">
+        <span class="revenue-badge" style="background:rgba(30,142,62,0.12); color:var(--green); border:1px solid rgba(30,142,62,0.3);">Phase 1 ✅</span>
+        <div>
+          <div style="font-weight:700; font-size:15px; margin-bottom:4px;">Free Discovery Platform</div>
+          <div style="font-size:13px; color:var(--muted);">Build traffic and trust. Students discover career paths at no cost. Data is the asset.</div>
+        </div>
+      </div>
+      <div class="revenue-phase">
+        <span class="revenue-badge" style="background:rgba(255,140,0,0.1); color:var(--orange); border:1px solid rgba(255,140,0,0.25);">Phase 2</span>
+        <div>
+          <div style="font-weight:700; font-size:15px; margin-bottom:4px;">College Enhanced Profiles</div>
+          <div style="font-size:13px; color:var(--muted);">Colleges pay for rich listings — placements data, photos, scholarship info, testimonials. Free basic listing always available.</div>
+        </div>
+      </div>
+      <div class="revenue-phase">
+        <span class="revenue-badge" style="background:rgba(15,82,186,0.1); color:#4d8bff; border:1px solid rgba(15,82,186,0.25);">Phase 3</span>
+        <div>
+          <div style="font-weight:700; font-size:15px; margin-bottom:4px;">Analytics Dashboard</div>
+          <div style="font-size:13px; color:var(--muted);">Colleges get data: which students viewed their profile, which careers they're interested in, which exams they're preparing for.</div>
+        </div>
+      </div>
+      <div class="revenue-phase">
+        <span class="revenue-badge" style="background:rgba(147,51,234,0.1); color:#a855f7; border:1px solid rgba(147,51,234,0.25);">Phase 4</span>
+        <div>
+          <div style="font-weight:700; font-size:15px; margin-bottom:4px;">Opt-in Lead Generation</div>
+          <div style="font-size:13px; color:var(--muted);">Students who want to be contacted by colleges opt in. Colleges pay per verified, relevant lead.</div>
+        </div>
+      </div>
+      <div style="padding:16px 0 4px; display:flex; align-items:center; gap:12px;">
+        <span style="font-size:20px;">🚫</span>
+        <div style="font-size:14px; color:#ef4444; font-weight:700;">Never — Paid Rankings. Trust is the product. We will never compromise it.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 10 — TECH STACK
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="slide-10">
+  <span class="slide-num">10 / 12</span>
+  <div class="slide-inner">
+    <div class="section-header">
+      <div class="section-label">Technology</div>
+      <h2 class="section-title">Built to Be <span class="o">Fast, Free & Scalable</span></h2>
+      <div class="divider"></div>
+      <p class="section-sub">Every technology choice is deliberate — optimised for trust, performance, low cost, SEO, and mobile-first experience.</p>
+    </div>
+
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <table>
+          <thead><tr><th>Layer</th><th>Technology</th></tr></thead>
+          <tbody>
+            <tr><td>Frontend</td><td style="color:#4d8bff; font-weight:600;">Next.js 15 + TypeScript</td></tr>
+            <tr><td>Styling</td><td style="color:#4d8bff; font-weight:600;">Tailwind CSS</td></tr>
+            <tr><td>Backend / Auth</td><td style="color:var(--green); font-weight:600;">Supabase</td></tr>
+            <tr><td>Database</td><td style="color:var(--green); font-weight:600;">PostgreSQL</td></tr>
+            <tr><td>Search</td><td style="color:var(--orange); font-weight:600;">Meilisearch</td></tr>
+            <tr><td>Hosting</td><td style="color:var(--orange); font-weight:600;">Vercel</td></tr>
+            <tr><td>Analytics</td><td style="color:#a855f7; font-weight:600;">PostHog</td></tr>
+            <tr><td>AI — Phase 2</td><td style="color:#ec4899; font-weight:600;">Ollama + Qwen + Qdrant</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div class="card" style="padding:20px;">
+          <div style="font-weight:700; color:var(--orange); margin-bottom:6px;">💡 No Paid AI APIs</div>
+          <div style="font-size:13px; color:var(--muted);">Phase 1 uses a pure rule-based scoring engine — zero LLM cost. Phase 2 uses open-source Ollama + Qwen running locally.</div>
+        </div>
+        <div class="card" style="padding:20px;">
+          <div style="font-weight:700; color:var(--green); margin-bottom:6px;">⚡ Static Generation</div>
+          <div style="font-size:13px; color:var(--muted);">All 800+ career path pages are statically generated — blazing fast, perfect SEO, no server costs per request.</div>
+        </div>
+        <div class="card" style="padding:20px;">
+          <div style="font-weight:700; color:var(--blue); margin-bottom:6px;">📱 Mobile First</div>
+          <div style="font-size:13px; color:var(--muted);">70%+ of Indian students browse on mobile. Every page is designed mobile-first, optimised for low bandwidth.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 11 — BUILD ROADMAP
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="slide-11">
+  <span class="slide-num">11 / 12</span>
+  <div class="slide-inner">
+    <div class="section-header">
+      <div class="section-label">Roadmap</div>
+      <h2 class="section-title">Build <span class="o">Incrementally</span>, Ship <span class="g">Continuously</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:0;">
+      <div style="display:flex; gap:20px; padding-bottom:32px;">
+        <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
+          <div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--orange),#e07b00); display:flex; align-items:center; justify-content:center; font-weight:800; color:white; font-size:14px;">V1</div>
+          <div style="width:2px; flex:1; min-height:24px; background:var(--border); margin:4px 0;"></div>
+        </div>
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+            <span style="font-weight:700; font-size:16px;">V1 — Discovery</span>
+            <span style="font-size:11px; background:rgba(30,142,62,0.15); color:var(--green); border:1px solid rgba(30,142,62,0.3); padding:2px 10px; border-radius:12px; font-weight:700;">✅ Live</span>
+          </div>
+          <div style="font-size:13px; color:var(--muted); line-height:1.7;">Smart discovery engine, career compare, 26 career paths with full roadmaps, exams page, research hub, government careers, Andhra Pradesh opportunity map.</div>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px; padding-bottom:32px;">
+        <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
+          <div style="width:40px; height:40px; border-radius:50%; background:var(--card); border:2px solid var(--orange); display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--orange); font-size:14px;">V2</div>
+          <div style="width:2px; flex:1; min-height:24px; background:var(--border); margin:4px 0;"></div>
+        </div>
+        <div>
+          <div style="font-weight:700; font-size:16px; margin-bottom:8px;">V2 — Colleges</div>
+          <div style="font-size:13px; color:var(--muted); line-height:1.7;">College directory starting with AP government colleges. Supabase backend. User profiles to save discovery results. Meilisearch for full-text search.</div>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px; padding-bottom:32px;">
+        <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
+          <div style="width:40px; height:40px; border-radius:50%; background:var(--card); border:2px solid var(--border); display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--muted); font-size:14px;">V3</div>
+          <div style="width:2px; flex:1; min-height:24px; background:var(--border); margin:4px 0;"></div>
+        </div>
+        <div>
+          <div style="font-weight:700; font-size:16px; margin-bottom:8px;">V3 — Research & Government</div>
+          <div style="font-size:13px; color:var(--muted); line-height:1.7;">Full research centre directory, incubation centre listings, government job notifications integrated, NIRF data integration.</div>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px; padding-bottom:32px;">
+        <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
+          <div style="width:40px; height:40px; border-radius:50%; background:var(--card); border:2px solid var(--border); display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--muted); font-size:14px;">V4</div>
+          <div style="width:2px; flex:1; min-height:24px; background:var(--border); margin:4px 0;"></div>
+        </div>
+        <div>
+          <div style="font-weight:700; font-size:16px; margin-bottom:8px;">V4 — Industry & Jobs</div>
+          <div style="font-size:13px; color:var(--muted); line-height:1.7;">Live company listings by state, job opportunity map, startup ecosystem directory, industry demand data from Invest India / Startup India.</div>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px;">
+        <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
+          <div style="width:40px; height:40px; border-radius:50%; background:var(--card); border:2px solid var(--border); display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--muted); font-size:14px;">V5</div>
+        </div>
+        <div>
+          <div style="font-weight:700; font-size:16px; margin-bottom:8px;">V5 — AI Assistant</div>
+          <div style="font-size:13px; color:var(--muted); line-height:1.7;">Open-source AI counsellor using Ollama + Qwen + Qdrant RAG. Conversational career guidance. Zero API cost. Runs locally.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 12 — CTA
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="slide-last">
+  <span class="slide-num">12 / 12</span>
+  <div class="slide-inner" style="text-align:center;">
+    <img src="public/logo.png" alt="BharatEduVerse" class="logo-hero" style="width:120px; height:120px;" />
+
+    <h2 class="cta-title">
+      Build India's <span class="o">Future</span><br/>
+      One Student at a <span class="g">Time</span>
+    </h2>
+
+    <p class="cta-sub" style="max-width:560px; margin:0 auto 40px;">
+      Every student who finds the right path becomes a better engineer, doctor, researcher, or entrepreneur.
+      That's how India grows — not by following trends, but by discovering real opportunities.
+    </p>
+
+    <div class="pill-row" style="margin-bottom:48px;">
+      <span class="pill pill-o">🧭 Discover</span>
+      <span class="pill pill-g">⚖️ Compare</span>
+      <span class="pill pill-b">🗺️ Roadmap</span>
+    </div>
+
+    <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:32px; max-width:500px; margin:0 auto;">
+      <div style="font-size:13px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:16px;">The Promise</div>
+      <p style="font-size:16px; color:var(--text); line-height:1.8; margin-bottom:20px;">
+        Free for students and parents — forever.<br/>
+        No paid rankings — ever.<br/>
+        Built for India, by India.
+      </p>
+      <div style="font-size:22px; font-weight:800; font-family:'Poppins',sans-serif;">
+        <span style="color:var(--orange)">Bharat</span><span style="color:var(--text)">Edu</span><span style="color:var(--green)">Verse</span>
+      </div>
+      <div style="font-size:13px; color:var(--muted); margin-top:6px;">Learn for Tomorrow • Build for India</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+
+  function scrollTo(index) {
+    slides[index].scrollIntoView({ behavior: 'smooth' });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const index = Array.from(slides).indexOf(entry.target);
+        dots.forEach(d => d.classList.remove('active'));
+        if (dots[index]) dots[index].classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  slides.forEach(slide => observer.observe(slide));
+</script>
+
+</body>
+</html>

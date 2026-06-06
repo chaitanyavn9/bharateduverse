@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BharatEduVerse 🇮🇳
+
+> **Learn for Tomorrow • Build for India**
+>
+> *Choose Studies Based on Opportunities, Not Trends.*
+
+---
+
+## What is BharatEduVerse?
+
+BharatEduVerse is India's first comprehensive **Education + Career Discovery Platform** — built for students, parents, and educators who want to make informed decisions about studies and careers based on **real opportunities**, not just trends.
+
+Most students in India rush into a handful of popular courses without knowing what jobs exist in their own state, what industries are coming up, or what national goals create new opportunities. BharatEduVerse changes that.
+
+---
+
+## Features
+
+- 🧭 **Smart Discovery Engine** — Answer 9 questions, get ranked career matches
+- ⚖️ **Career Compare** — Side-by-side comparison across 10 parameters
+- 🗺️ **Full Roadmaps** — Studies → Exams → Colleges → Jobs → Companies
+- 📍 **State-Level Opportunities** — AP-specific: Google AI Data Center, AMCA, Aerospace City, Quantum Valley, and more
+- 🚀 **Upcoming Industry Map** — Plan ahead with industries being built right now
+- 🎓 **Exam Guide** — JEE, NEET, UPSC, GATE, SSC, NDA, IBPS and more
+- 🔬 **Research Hub** — Fellowships, incubation centres, national missions
+- 🏛️ **Government Careers** — IAS to Railway, salary, vacancies, strategy
+
+---
+
+## Career Universes Covered
+
+| Universe | Examples |
+|---|---|
+| Engineering | CSE, ECE, Aerospace, Civil, Mechanical |
+| Medical | MBBS, Pharmacy, Nursing, AYUSH |
+| Professional | CA, CS, CMA, Actuarial Science |
+| Government | IAS/IPS, SSC, Banking, Railways |
+| Defence | NDA, CDS, AFCAT, DRDO |
+| Research | NET/JRF, PhD, GATE |
+| Sustainability | Climate, Water, Waste, Green Energy |
+| Design | Architecture, Interior, UI/UX |
+| Finance | Stock Market, FinTech, Investment |
+| Agriculture | AgriTech, Horticulture, Aquaculture |
+| Food Tech | Processing, Nutrition, Export |
+| Emerging | Quantum, Space, Oceanography |
+| Vocational | Polytechnic, ITI |
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | Next.js 15, TypeScript, Tailwind CSS |
+| Backend | Supabase (Postgres) |
+| Search | Meilisearch |
+| Hosting | Vercel |
+| Analytics | PostHog |
+| AI (Phase 2) | Ollama + Qwen/Gemma + Qdrant (RAG) |
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Clone the repo
+git clone git@github.com:chaitanyavn9/bharateduverse.git
+
+# Install dependencies
+cd bharateduverse
+npm install
+
+# Run dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build Roadmap
 
-## Learn More
+| Version | Features |
+|---|---|
+| V1 ✅ | Discovery Engine, Compare, Career Roadmaps, Exams, Research, Government |
+| V2 | College Directory (starting with AP govt colleges), Supabase integration |
+| V3 | Research Hub, Government Careers full data |
+| V4 | Industry Map, Jobs, Companies by state |
+| V5 | Open-source AI Assistant (Ollama + RAG) |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Revenue Model
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- ✅ **Free** for students and parents — always
+- 💼 **College Profiles** — enhanced listings (Phase 2)
+- 📊 **Analytics** — for colleges (Phase 3)
+- 🎯 **Lead Generation** — opt-in student leads for colleges (Phase 4)
+- 🚫 **Never** — paid rankings
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Philosophy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> **Best Fit for You — Not Best Career**
+
+No college pays to rank higher. No career is promoted because someone paid us. Every recommendation is based purely on fit — your interests, your goals, India's real opportunities.
+
+---
+
+## License
+
+MIT — free to use, learn from, and contribute to.
+
+---
+
+*Built with ❤️ for India*
